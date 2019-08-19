@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019, y785, http://github.com/y785
+ * Copyright (C) 2019, http://github.com/y785/moe-scripts
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,10 +26,10 @@ import moe.maple.api.script.model.Script;
 import moe.maple.api.script.util.tuple.Tuple;
 import moe.maple.scripts.npc.victoriaisland.VictoriaBasicTaxi;
 
+@Script(name = "taxi2")
 public class Taxi extends VictoriaBasicTaxi {
 
     @Override
-    @Script(name = "taxi2")
     public void work() {
         super.work(Tuple.of(104000000, 800),
                 Tuple.of(102000000, 1000),

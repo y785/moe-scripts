@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2019, y785, http://github.com/y785
+ * Copyright (C) 2019, http://github.com/y785/moe-scripts
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,10 +30,10 @@ import moe.maple.api.script.model.object.NpcObject;
 import moe.maple.api.script.model.object.PortalObject;
 import moe.maple.api.script.util.ScriptStringBuilder;
 
+@Script(name = "moe_script_missing")
 public class PortalNotFound extends MoeNotFound {
 
     @Override
-    @Script(name = "moe_script_missing")
     public void work() {
         var sb = new ScriptStringBuilder();
 
