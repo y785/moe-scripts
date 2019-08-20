@@ -57,7 +57,7 @@ public abstract class VictoriaBasicTaxi extends NpcScript {
             With.index(townsAndPrice, (tp, idx) -> {
                 var town = tp.left();
                 var cost = beginner ? tp.right() / discount : tp.right();
-                ssb.appendMenuItem(idx, MessageFormatter.format("#m{}# ({} mesos)", town, cost).getMessage());
+                ssb.appendMenuItem(idx, "#m{}# ({} mesos)", town, cost);
             });
             ssb.black();
 
