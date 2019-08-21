@@ -20,23 +20,14 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.quest;
+package moe.maple.scripts.field.mapleisland;
 
-import moe.maple.api.script.helper.MoeNotFound;
-import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.user.QuestObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
+import moe.maple.api.script.model.FieldScript;
 
-@Script(name = "moe_script_missing")
-public class QuestNotFound extends MoeNotFound {
+public class GoEffect extends FieldScript {
 
     @Override
     public void work() {
-        var sb = new ScriptStringBuilder();
-
-        sb.append("Missing Script: ").append(expected);
-        sb.append(", Quest: ").append(getQuestObject().map(QuestObject::getId).orElse(0));
-
-        message(sb.toString());
+        fieldScreen("maplemap/enter/{}", user.getFieldId());
     }
 }

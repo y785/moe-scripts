@@ -20,23 +20,16 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.quest;
+package moe.maple.scripts.portal.mapleisland;
 
-import moe.maple.api.script.helper.MoeNotFound;
+import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.user.QuestObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
 
-@Script(name = "moe_script_missing")
-public class QuestNotFound extends MoeNotFound {
+@Script(name = "glTutoMsg0", description = "Maple Road: Mushroom Town")
+public class TutoMesg0 extends PortalScript {
 
     @Override
     public void work() {
-        var sb = new ScriptStringBuilder();
-
-        sb.append("Missing Script: ").append(expected);
-        sb.append(", Quest: ").append(getQuestObject().map(QuestObject::getId).orElse(0));
-
-        message(sb.toString());
+        balloon(150, 5, "Press the #e#bUP#k key#n to enter a portal. Once you leave this area, you won't be able to return.");
     }
 }

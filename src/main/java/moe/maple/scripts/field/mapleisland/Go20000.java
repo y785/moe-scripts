@@ -20,23 +20,15 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.quest;
+package moe.maple.scripts.field.mapleisland;
 
-import moe.maple.api.script.helper.MoeNotFound;
+import moe.maple.api.script.model.FieldScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.user.QuestObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
 
-@Script(name = "moe_script_missing")
-public class QuestNotFound extends MoeNotFound {
-
+@Script(name = "go20000", description = "Maple Road: Snail Park")
+public class Go20000 extends GoEffect {
     @Override
     public void work() {
-        var sb = new ScriptStringBuilder();
-
-        sb.append("Missing Script: ").append(expected);
-        sb.append(", Quest: ").append(getQuestObject().map(QuestObject::getId).orElse(0));
-
-        message(sb.toString());
+        super.work();
     }
 }

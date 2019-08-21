@@ -27,7 +27,7 @@ import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
 import moe.maple.api.script.model.object.FieldObject;
 import moe.maple.api.script.model.object.field.PortalObject;
-import moe.maple.api.script.util.ScriptStringBuilder;
+import moe.maple.api.script.util.builder.ScriptStringBuilder;
 
 @Script(name = "moe_script_missing")
 public class PortalNotFound extends MoeNotFound {

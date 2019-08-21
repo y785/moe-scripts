@@ -26,10 +26,4 @@ import moe.maple.api.script.model.FieldScript;
 import moe.maple.api.script.model.Script;
 
 @Script(name = "go10000", description = "Maple Road: Mushroom Town onUserEnter")
-public class Go10000 extends FieldScript {
-
-    @Override
-    public void work() {
-        fieldScreen("maplemap/enter/{}", 10000);
-    }
-}
+public class Go10000 extends GoEffect { }

@@ -26,7 +26,7 @@ import moe.maple.api.script.helper.MoeNotFound;
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
 import moe.maple.api.script.model.object.FieldObject;
-import moe.maple.api.script.util.ScriptStringBuilder;
+import moe.maple.api.script.util.builder.ScriptStringBuilder;
 
 @Script(name = "moe_script_missing")
 public class NpcNotFound extends MoeNotFound {

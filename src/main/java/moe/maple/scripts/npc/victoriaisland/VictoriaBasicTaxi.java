@@ -23,13 +23,17 @@
 package moe.maple.scripts.npc.victoriaisland;
 
 import moe.maple.api.script.model.NpcScript;
-import moe.maple.api.script.util.ScriptStringBuilder;
-import moe.maple.api.script.util.With;
+import moe.maple.api.script.util.builder.ScriptFormatter;
+import moe.maple.api.script.util.builder.ScriptStringBuilder;
 import moe.maple.api.script.util.tuple.Tuple;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.slf4j.helpers.MessageFormatter;
 
 public abstract class VictoriaBasicTaxi extends NpcScript {
     protected int discount;
+    
+    private static final Logger log = LoggerFactory.getLogger( VictoriaBasicTaxi.class );
 
     public VictoriaBasicTaxi() {
         this.discount = 10;
@@ -46,19 +50,20 @@ public abstract class VictoriaBasicTaxi extends NpcScript {
 
     protected void work(Tuple<Integer, Integer>... townsAndPrice) {
         say("How's it going? I drive the #b#p{}##k. If you want to get from one city to another quickly and safely, use our taxi.\r\nWe will be happy to take you wherever you wish, at an affordable price!", getSpeakerTemplateId()).andThen(() -> {
-            ScriptStringBuilder ssb = new ScriptStringBuilder();
+            var ssb = new ScriptStringBuilder();
             var beginner = user.isBeginner();
             if (beginner)
-                ssb.append("We have a special discount of {}% for beginners", 100 - discount);
+                ssb.appendFormat("We have a special discount of {}% for beginners", 100 - discount);
             ssb.append("Select your destination. The rate varies from place to place...\r\n");
 
 
-            ssb.blue();
-            With.index(townsAndPrice, (tp, idx) -> {
+            ssb.newLine().blue().appendMenu((tp) -> {
                 var town = tp.left();
-                var cost = beginner ? tp.right() / discount : tp.right();
-                ssb.appendMenuItem(idx, "#m{}# ({} mesos)", town, cost);
-            });
+                var cost = tp.right();
+                var ret = ScriptFormatter.format("#m{}# ({} mesos)", town, cost);
+                log.debug("??? {}", ret);
+                return ret;
+            }, townsAndPrice);
             ssb.black();
 
             askMenu(ssb.toString()).andThen(idx -> {
