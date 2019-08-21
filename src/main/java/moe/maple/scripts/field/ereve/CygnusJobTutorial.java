@@ -20,15 +20,32 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.field.mapleisland;
+package moe.maple.scripts.field.ereve;
 
 import moe.maple.api.script.model.FieldScript;
 import moe.maple.api.script.model.Script;
 
-@Script(name = "goSwordman")
-public class GoSwordman extends FieldScript {
+@Script(name = "cygnusJobTutorial")
+public class CygnusJobTutorial extends FieldScript {
+
+    private final int startField = 913040100;
+
     @Override
     public void work() {
-        reservedEffect("Effect/Direction3.img/swordman/Scene" + user.getGender());
+        var fieldId = user.getFieldId();
+
+        if (fieldId > startField + 6 || fieldId < startField) {
+            user.setStandAloneMode(false);
+            user.setDirectionMode(false);
+            balloon("Are you hacking? I'm onto you!");
+        } else {
+            var first = fieldId == startField;
+            if (first) {
+                user.setStandAloneMode(true);
+                user.setDirectionMode(true);
+            }
+            reservedEffect("Effect/Direction.img/cygnusJobTutorial/Scene"+(fieldId - startField));
+        }
+
     }
 }

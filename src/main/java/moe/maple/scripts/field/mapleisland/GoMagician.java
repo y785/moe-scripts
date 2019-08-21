@@ -29,6 +29,6 @@ import moe.maple.api.script.model.Script;
 public class GoMagician extends FieldScript {
     @Override
     public void work() {
-        fieldScreen("Effect/Direction3.img/magician/Scene" + user.getGender());
+        reservedEffect("Effect/Direction3.img/magician/Scene" + user.getGender());
     }
 }

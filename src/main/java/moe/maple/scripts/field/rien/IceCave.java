@@ -20,15 +20,24 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.field.mapleisland;
+package moe.maple.scripts.field.rien;
 
 import moe.maple.api.script.model.FieldScript;
 import moe.maple.api.script.model.Script;
 
-@Script(name = "goSwordman")
-public class GoSwordman extends FieldScript {
+@Script(name = "iceCave")
+public class IceCave extends FieldScript {
     @Override
     public void work() {
-        reservedEffect("Effect/Direction3.img/swordman/Scene" + user.getGender());
+        user.forgetSkill(20000014);
+        user.forgetSkill(20000015);
+        user.forgetSkill(20000016);
+        user.forgetSkill(20000017);
+        user.forgetSkill(20000018);
+
+        user.setStandAloneMode(false);
+        user.setDirectionMode(false);
+
+        avatarOriented("Effect/Direction1.img/aranTutorial/ClickLilin", 7);
     }
 }

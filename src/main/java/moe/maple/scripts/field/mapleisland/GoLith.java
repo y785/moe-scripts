@@ -29,6 +29,6 @@ import moe.maple.api.script.model.Script;
 public class GoLith extends FieldScript {
     @Override
     public void work() {
-        fieldScreen("Effect/Direction3.img/goLith/Scene" + user.getGender());
+        reservedEffect("Effect/Direction3.img/goLith/Scene" + user.getGender());
     }
 }

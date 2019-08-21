@@ -29,6 +29,6 @@ import moe.maple.api.script.model.Script;
 public class GoPirate extends PortalScript {
     @Override
     public void work() {
-        fieldScreen("Effect/Direction3.img/pirate/Scene" + user.getGender());
+        reservedEffect("Effect/Direction3.img/pirate/Scene" + user.getGender());
     }
 }

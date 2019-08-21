@@ -20,15 +20,18 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.field.mapleisland;
+package moe.maple.scripts.field.victoriaisland;
 
 import moe.maple.api.script.model.FieldScript;
 import moe.maple.api.script.model.Script;
 
-@Script(name = "goSwordman")
-public class GoSwordman extends FieldScript {
+@Script(name = "PromiseDragon")
+public class PromiseDragon extends FieldScript {
     @Override
     public void work() {
-        reservedEffect("Effect/Direction3.img/swordman/Scene" + user.getGender());
+        user.setStandAloneMode(true);
+        user.setDirectionMode(true);
+
+        reservedEffect("Effect/Direction4.img/PromiseDragon/Scene"+user.getGender());
     }
 }
