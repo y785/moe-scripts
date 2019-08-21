@@ -30,6 +30,7 @@ public class RienTutor2 extends PortalScript {
     @Override
     public void work() {
         if (user.isQuestCompleted(21011)) {
+            playPortalSE();
             user.transferField(140090300, 1);
         } else {
             balloon("You must complete the quest before proceeding to the next map.");

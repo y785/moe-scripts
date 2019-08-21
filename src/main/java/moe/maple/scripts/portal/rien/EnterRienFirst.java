@@ -30,8 +30,10 @@ public class EnterRienFirst extends PortalScript {
     @Override
     public void work() {
         if (user.getJobId() == 2000 && !user.isQuestCompleted(21014)) {
+            playPortalSE();
             user.transferField(140000000, 1);
         } else {
+            playPortalSE();
             user.transferField(140000000, "west00");
         }
     }

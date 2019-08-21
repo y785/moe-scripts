@@ -36,11 +36,11 @@ public class PortalNotFound extends MoeNotFound {
     public void work() {
         var sb = new ScriptStringBuilder();
 
-        sb.append("Portal is missing Script: ").append(expected);
-        sb.append(", Field: ").append(getFieldObect().map(FieldObject::getId).orElse(0));
-        sb.append(", Portal Id: ").append(getPortalObject().map(PortalObject::getId).orElse(0));
-        sb.append(", Name: ").append(getPortalObject().map(PortalObject::getPortalName).orElse(""));
+        sb.append("This portal is missing a script! Name: ").append(expected)
+                .append(", Field: ").append(user.getFieldId())
+                .append(", Portal Id: ").append(getPortalObject().map(PortalObject::getId).orElse(0))
+                .append(", Name: ").append(getPortalObject().map(PortalObject::getPortalName).orElse(""));
 
-        message(sb.toString());
+        balloon(sb.toString());
     }
 }
