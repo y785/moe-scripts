@@ -60,6 +60,7 @@ public class RankRoom extends PortalScript {
                 return;
         }
 
+        playPortalSE();
         user.transferField(warpTo, portal);
     }
 }
