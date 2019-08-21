@@ -24,8 +24,7 @@ package moe.maple.scripts.quest;
 
 import moe.maple.api.script.helper.MoeNotFound;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.FieldObject;
-import moe.maple.api.script.model.object.QuestObject;
+import moe.maple.api.script.model.object.user.QuestObject;
 import moe.maple.api.script.util.ScriptStringBuilder;
 
 @Script(name = "moe_script_missing")
