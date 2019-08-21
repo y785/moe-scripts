@@ -20,21 +20,18 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoriaisland.ellinia;
+package moe.maple.scripts.field.victoria;
 
+import moe.maple.api.script.model.FieldScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoriaisland.VictoriaBasicTaxi;
 
-@Script(name = "taxi4")
-public class Taxi extends VictoriaBasicTaxi {
-
+@Script(name = "PromiseDragon")
+public class PromiseDragon extends FieldScript {
     @Override
     public void work() {
-        super.work(Tuple.of(104000000, 1200),
-                Tuple.of(102000000, 1000),
-                Tuple.of(100000000, 1000),
-                Tuple.of(103000000, 1200),
-                Tuple.of(120000000, 1100));
+        user.setStandAloneMode(true);
+        user.setDirectionMode(true);
+
+        reservedEffect("Effect/Direction4.img/PromiseDragon/Scene"+user.getGender());
     }
 }

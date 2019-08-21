@@ -20,21 +20,23 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoriaisland.perion;
+package moe.maple.scripts.portal.victoria;
 
+import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoriaisland.VictoriaBasicTaxi;
 
-@Script(name = "taxi1")
-public class Taxi extends VictoriaBasicTaxi {
-
+@Script(name = "enterMagicLibrar")
+public class EnterMagicLibrary extends PortalScript {
     @Override
     public void work() {
-        super.work(Tuple.of(104000000, 1200),
-                Tuple.of(100000000, 1000),
-                Tuple.of(101000000, 1000),
-                Tuple.of(120000000, 1100),
-                Tuple.of(103000000, 800));
+        // todo implement librar
+        playPortalSE();
+        if (user.isQuestStarted(20718)) { // "Maybe It's Grendel!"
+            user.transferField(910110000, 8);
+            // An alternate Magic Library used for the Cygnus Quest
+            // Supposed to have a 10 minute time limit. Maybe a FieldSet?
+        } else {
+            user.transferField(101000003, 8);
+        }
     }
 }

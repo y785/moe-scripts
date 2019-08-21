@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoriaisland;
+package moe.maple.scripts.npc.victoria;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.util.builder.ScriptFormatter;
@@ -28,7 +28,6 @@ import moe.maple.api.script.util.builder.ScriptStringBuilder;
 import moe.maple.api.script.util.tuple.Tuple;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.helpers.MessageFormatter;
 
 public abstract class VictoriaBasicTaxi extends NpcScript {
     protected int discount;

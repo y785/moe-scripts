@@ -20,11 +20,11 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoriaisland.kerning;
+package moe.maple.scripts.npc.victoria.kerning;
 
 import moe.maple.api.script.model.Script;
 import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoriaisland.VictoriaBasicTaxi;
+import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
 @Script(name = "taxi3")
 public class Taxi extends VictoriaBasicTaxi {

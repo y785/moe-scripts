@@ -20,21 +20,32 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoriaisland.nautilus;
+package moe.maple.scripts.portal.minar;
 
+import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoriaisland.VictoriaBasicTaxi;
+import moe.maple.api.script.util.builder.ScriptFormatter;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
-
+@Script(name = "minar_elli")
+public class MinarWormhole extends PortalScript {
     @Override
     public void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        var elliniaId = 101010000;
+        var leafreId = 240010100; //Minar Forest : West Border
+
+        var magicSeed = 4031346;
+
+        if (user.hasItem(magicSeed) && user.exchange(0, magicSeed, -1)) {
+            playPortalSE();
+            if (user.getFieldId() == leafreId) {
+                user.transferField(elliniaId, "minar00");
+                message(ScriptFormatter.format("Using the Magical Seed, you have been transported to another place. You have {} seed(s) left.", user.getItemCount(magicSeed)));
+            } else {
+                user.transferField(leafreId, "elli00");
+                message(ScriptFormatter.format("Using the Magical Seed, you have been transported to another place. You have {} seed(s) left.", user.getItemCount(magicSeed)));
+            }
+        } else {
+            message("The Magical Seed is needed to go through the portal.");
+        }
     }
 }
