@@ -26,19 +26,14 @@ import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
 import moe.maple.api.script.util.With;
 import moe.maple.api.script.util.builder.ScriptStringBuilder;
+import moe.maple.scripts.util.Naughty;
 
 import java.util.function.Predicate;
 
+import static moe.maple.scripts.util.Naughty.numeric;
+
 @Script(name = "world_trip", description = "Spinel - World Tour Guide")
 public class WorldTrip extends NpcScript {
-
-    Predicate<CharSequence> numeric = cs -> {
-        for (int i = 0; i < cs.length(); ++i) {
-            if (!Character.isDigit(cs.charAt(i)))
-                return false;
-        }
-        return true;
-    };
 
     private boolean isCorrectField(int fieldId) {
         switch (fieldId) {
@@ -90,11 +85,7 @@ public class WorldTrip extends NpcScript {
     public void work() {
         var variable = user.getScriptVariable(Constants.VARIABLE_ID);
 
-        final int returnMap;
-        if (variable.isEmpty() || !numeric.test(variable))
-            returnMap = 100000000; // henesys
-        else
-            returnMap = Integer.valueOf(variable);
+        final int returnMap = Naughty.toInt(variable, 100000000);
 
         if (isCorrectField(user.getFieldId())) {
             workCorrectField();
