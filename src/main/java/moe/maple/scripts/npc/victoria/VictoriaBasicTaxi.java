@@ -60,7 +60,6 @@ public abstract class VictoriaBasicTaxi extends NpcScript {
                 var town = tp.left();
                 var cost = tp.right();
                 var ret = ScriptFormatter.format("#m{}# ({} mesos)", town, cost);
-                log.debug("??? {}", ret);
                 return ret;
             }, townsAndPrice);
             ssb.black();
