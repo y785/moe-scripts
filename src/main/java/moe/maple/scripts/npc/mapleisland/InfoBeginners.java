@@ -20,27 +20,24 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.portal;
+package moe.maple.scripts.npc.mapleisland;
 
-import moe.maple.api.script.helper.MoeNotFound;
-import moe.maple.api.script.model.PortalScript;
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.FieldObject;
-import moe.maple.api.script.model.object.field.PortalObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
+import moe.maple.api.script.util.builder.ScriptFormatter;
 
-@Script(name = "moe_script_missing")
-public class PortalNotFound extends MoeNotFound {
+@Script(name = "InfoBeginners")
+public abstract class InfoBeginners extends NpcScript {
 
-    @Override
-    public void work() {
-        var sb = new ScriptStringBuilder();
-
-        sb.append("This portal is missing a script! Name: ").append(expected)
-                .append(", Field: ").append(user.getFieldId())
-                .append(", Portal Id: ").append(getPortalObject().map(PortalObject::getId).orElse(0))
-                .append(", Name: ").append(getPortalObject().map(PortalObject::getName).orElse(""));
-
-        balloon(sb.toString());
+    protected void work(String messageSay, String name, int fieldTo) {
+        say(messageSay).andThen(() -> {
+            askYesNo(ScriptFormatter.format("Would you like to experience what it's like to be a {}?", name), () -> {
+                user.setStandAloneMode(true);
+                user.setDirectionMode(true);
+                user.transferField(fieldTo);
+            }, () -> {
+                say(ScriptFormatter.format("If you wish to experience what it's like to be a {}, come see me again.", name));
+            });
+        });
     }
 }

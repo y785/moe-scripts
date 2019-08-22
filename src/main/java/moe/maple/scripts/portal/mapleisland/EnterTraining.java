@@ -20,27 +20,29 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.portal;
+package moe.maple.scripts.portal.mapleisland;
 
-import moe.maple.api.script.helper.MoeNotFound;
 import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.FieldObject;
-import moe.maple.api.script.model.object.field.PortalObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
 
-@Script(name = "moe_script_missing")
-public class PortalNotFound extends MoeNotFound {
-
+@Script(name = "entertraining", description = "Maple Road: Entrance to Adventurer Training Center | Mai's quests")
+public class EnterTraining extends PortalScript {
     @Override
     public void work() {
-        var sb = new ScriptStringBuilder();
-
-        sb.append("This portal is missing a script! Name: ").append(expected)
-                .append(", Field: ").append(user.getFieldId())
-                .append(", Portal Id: ").append(getPortalObject().map(PortalObject::getId).orElse(0))
-                .append(", Name: ").append(getPortalObject().map(PortalObject::getName).orElse(""));
-
-        balloon(sb.toString());
+        if (user.isQuestStarted(1041)) {
+            playPortalSE();
+            user.transferField(1010100, "sp");
+        } else if (user.isQuestStarted(1042)) {
+            playPortalSE();
+            user.transferField(1010200, "sp");
+        } else if (user.isQuestStarted(1043)) {
+            playPortalSE();
+            user.transferField(1010300, "sp");
+        } else if (user.isQuestStarted(1044)) {
+            playPortalSE();
+            user.transferField(1010400, "sp");
+        } else {
+            balloon(200, 5,"Only the adventurers that have been trained by Mai may enter.");
+        }
     }
 }

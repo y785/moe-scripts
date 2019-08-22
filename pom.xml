@@ -90,7 +90,7 @@
         <dependency>
             <groupId>com.github.y785</groupId>
             <artifactId>script-api</artifactId>
-            <version>1.4.2-ALPHA</version>
+            <version>1.4.5-ALPHA</version>
         </dependency>
         <!-- Logging -->
         <dependency>

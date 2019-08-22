@@ -20,27 +20,17 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.portal;
+package moe.maple.scripts.npc.mapleisland;
 
-import moe.maple.api.script.helper.MoeNotFound;
-import moe.maple.api.script.model.PortalScript;
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.FieldObject;
-import moe.maple.api.script.model.object.field.PortalObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
 
-@Script(name = "moe_script_missing")
-public class PortalNotFound extends MoeNotFound {
-
+@Script(name = "infoPirate", description = "Maple Road: Split Road of Destiny | Kyrin")
+public class InfoPirate extends InfoBeginners {
     @Override
     public void work() {
-        var sb = new ScriptStringBuilder();
-
-        sb.append("This portal is missing a script! Name: ").append(expected)
-                .append(", Field: ").append(user.getFieldId())
-                .append(", Portal Id: ").append(getPortalObject().map(PortalObject::getId).orElse(0))
-                .append(", Name: ").append(getPortalObject().map(PortalObject::getName).orElse(""));
-
-        balloon(sb.toString());
+        work("Pirates are blessed with outstanding dexterity and power, utilizing their guns for long-range attacks while using their power on melee combat situations. Gunslingers use elemental-based bullets for added damage, while Infighters transform to a different being for maximum effect.",
+                "Pirate",
+                1020500);
     }
 }

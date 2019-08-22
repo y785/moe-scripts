@@ -20,27 +20,19 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.portal;
+package moe.maple.scripts.reactor.mapleisland;
 
-import moe.maple.api.script.helper.MoeNotFound;
-import moe.maple.api.script.model.PortalScript;
+import moe.maple.api.script.model.ReactorScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.FieldObject;
-import moe.maple.api.script.model.object.field.PortalObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
 
-@Script(name = "moe_script_missing")
-public class PortalNotFound extends MoeNotFound {
+@Script(name = "mBoxItem0", description = "Amherst | Boxes for Pio quest")
+public class MBoxItem0 extends ReactorScript {
 
     @Override
     public void work() {
-        var sb = new ScriptStringBuilder();
+        if (self.getState() == 4) {
+            self.drop();
+        }
 
-        sb.append("This portal is missing a script! Name: ").append(expected)
-                .append(", Field: ").append(user.getFieldId())
-                .append(", Portal Id: ").append(getPortalObject().map(PortalObject::getId).orElse(0))
-                .append(", Name: ").append(getPortalObject().map(PortalObject::getName).orElse(""));
-
-        balloon(sb.toString());
     }
 }

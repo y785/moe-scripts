@@ -28,6 +28,10 @@ public class GoEffect extends FieldScript {
 
     @Override
     public void work() {
+        if (field.getId() == 1020000) {
+            user.setStandAloneMode(false);
+            user.setDirectionMode(false);
+        }
         fieldScreen("maplemap/enter/{}", user.getFieldId());
     }
 }

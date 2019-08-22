@@ -20,27 +20,17 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.portal;
+package moe.maple.scripts.npc.mapleisland;
 
-import moe.maple.api.script.helper.MoeNotFound;
-import moe.maple.api.script.model.PortalScript;
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.FieldObject;
-import moe.maple.api.script.model.object.field.PortalObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
 
-@Script(name = "moe_script_missing")
-public class PortalNotFound extends MoeNotFound {
-
+@Script(name = "infoArcher", description = "Maple Road: Split Road of Destiny | Athena Pierce")
+public class InfoArcher extends InfoBeginners {
     @Override
     public void work() {
-        var sb = new ScriptStringBuilder();
-
-        sb.append("This portal is missing a script! Name: ").append(expected)
-                .append(", Field: ").append(user.getFieldId())
-                .append(", Portal Id: ").append(getPortalObject().map(PortalObject::getId).orElse(0))
-                .append(", Name: ").append(getPortalObject().map(PortalObject::getName).orElse(""));
-
-        balloon(sb.toString());
+        work("Bowmen are blessed with dexterity and power, taking charge of long-distance attacks, providing support for those at the front line of the battle. Very adept at using landscape as part of the arsenal.",
+                "Bowman",
+                1020300);
     }
 }

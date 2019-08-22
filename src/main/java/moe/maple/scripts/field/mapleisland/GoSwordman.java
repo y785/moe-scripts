@@ -29,6 +29,7 @@ import moe.maple.api.script.model.Script;
 public class GoSwordman extends FieldScript {
     @Override
     public void work() {
+
         reservedEffect("Effect/Direction3.img/swordman/Scene" + user.getGender());
     }
 }
