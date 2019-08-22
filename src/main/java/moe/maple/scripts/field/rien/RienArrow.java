@@ -30,7 +30,7 @@ public class RienArrow extends FieldScript {
     @Override
     public void work() {
         if (user.isAran()) {
-            if (!user.getQuestEx(21019, "arr").contentEquals("o")) {
+            if (!user.containsQuestEx(21019, "arr", "o")) {
                 user.fireTutor(); // Just in-case?
 
                 user.setQuestEx(21019, "arr", "o");
