@@ -52,7 +52,7 @@ public class SellTicketSg extends NpcScript {
     }
 
     @Override
-    public void work() {
+    protected void work() {
         askMenu("Hello there~ I am Irene from Changi Airport. I was transferred to Kerning City to celebrate the new opening of our service! How can I help you?",
                 "I would like to buy a plane ticket to Singapore.",
                 "Let me go to the departure point").andThen(sel -> {

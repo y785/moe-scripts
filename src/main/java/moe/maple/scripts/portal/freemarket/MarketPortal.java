@@ -28,7 +28,7 @@ import moe.maple.api.script.model.PortalScript;
 public class MarketPortal extends PortalScript {
 
     @Override
-    public void work() {
+    protected void work() {
         user.setScriptVariable("market", user.getFieldId());
         playPortalSE();
         user.transferField(910000000, "st00");

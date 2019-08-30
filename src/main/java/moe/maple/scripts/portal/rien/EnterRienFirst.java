@@ -28,8 +28,8 @@ import moe.maple.api.script.model.Script;
 @Script(name = "enterRienFirst")
 public class EnterRienFirst extends PortalScript {
     @Override
-    public void work() {
-        if (user.getJobId() == 2000 && !user.isQuestCompleted(21014)) {
+    protected void work() {
+        if (user.getJobId() == 2000 && !user.getQuestHolder().isComplete(21014)) {
             playPortalSE();
             user.transferField(140000000, 1);
         } else {

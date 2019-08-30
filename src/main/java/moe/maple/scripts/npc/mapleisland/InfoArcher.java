@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "infoArcher", description = "Maple Road: Split Road of Destiny | Athena Pierce")
 public class InfoArcher extends InfoBeginners {
     @Override
-    public void work() {
+    protected void work() {
         work("Bowmen are blessed with dexterity and power, taking charge of long-distance attacks, providing support for those at the front line of the battle. Very adept at using landscape as part of the arsenal.",
                 "Bowman",
                 1020300);

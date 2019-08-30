@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "infoWorldmap")
 public class InfoWorldmap extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         avatarOriented("UI/tutorial.img/26", 7);
     }
 }

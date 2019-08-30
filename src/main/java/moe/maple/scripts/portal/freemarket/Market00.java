@@ -29,7 +29,7 @@ import moe.maple.scripts.util.Naughty;
 @Script(name = "market00", description = "Free Market exit portal")
 public class Market00 extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         var variable = user.getScriptVariable("market");
 
         var returnMap = Naughty.toInt(variable, 100000100);

@@ -28,8 +28,8 @@ import moe.maple.api.script.model.Script;
 @Script(name = "infoReactor")
 public class InfoReactor extends PortalScript {
     @Override
-    public void work() {
-        if (user.isQuestStarted(1008)) {
+    protected void work() {
+        if (user.getQuestHolder().isInProgress(1008)) {
             avatarOriented("UI/tutorial.img/22");
         } else {
             avatarOriented("UI/tutorial.img/27");

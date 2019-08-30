@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "goAdventure")
 public class GoAdventure extends FieldScript {
     @Override
-    public void work() {
+    protected void work() {
         user.setStandAloneMode(true);
         user.setDirectionMode(true);
         reservedEffect("Effect/Direction3.img/goAdventure/Scene" + user.getGender());

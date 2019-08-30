@@ -31,7 +31,7 @@ import moe.maple.api.script.util.builder.ScriptStringBuilder;
 public class ReactorNotFound extends MoeNotFound {
 
     @Override
-    public void work() {
+    protected void work() {
         var sb = new ScriptStringBuilder();
 
         sb.append("This reactor is missing a script! Name: ").append(expected)

@@ -29,10 +29,10 @@ import moe.maple.api.script.model.Script;
 @Script(name = "enterDollCave", description = "Cave of Evil Eye III | 105070300")
 public class EnterDollCave extends PortalScript {
     @Override
-    public void work() {
-        if (user.isQuestStarted(20730)) {
+    protected void work() {
+        if (user.getQuestHolder().isInProgress(20730)) {
             user.talkTo(1063011);
-        } else if (user.isQuestCompleted(20730)) {
+        } else if (user.getQuestHolder().isComplete(20730)) {
             playPortalSE();
             user.transferField(910050300); // 105040201,2?
         } else {

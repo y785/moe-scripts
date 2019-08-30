@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "rein", description = "Amherst | Rain (Pantsu grill)")
 public class Rain extends NpcScript {
     @Override
-    public void work() {
+    protected void work() {
         say("This is the town called #bAmherst#k, located at the northeast part of the Maple Island. You know that Maple Island is for beginners, right? I'm glad there are only weak monsters around this place.",
                 "If you want to get stronger, then go to #bSouthperry#k where there's a harbor. Ride on the gigantic ship and head to the place called #bVictoria Island#k. It's incomparable in size compared to this tiny island.",
                 "At the Victoria Island, you can choose your job. Is it called #bPerion#k...? I heard there's a bare, desolate town where warriors live. A highland...what kind of a place would that be?");

@@ -29,7 +29,7 @@ import moe.maple.api.script.util.builder.ScriptFormatter;
 @Script(name = "Manji", description = "Manji in perion, at the top of the map, being emo")
 public class Manji extends NpcScript {
     @Override
-    public void work() {
+    protected void work() {
         var cost = 10000;
 
         askYesNo(ScriptFormatter.format("What? You want a shot at sealing Balrog? A weakling like you might not make it back in one piece! Well, I suppose it isn't my business. Alright, you need to pay a fee of #b{} Mesos#k. Do you have enough Mesos on you?", String.format("%,d", cost)), () -> {

@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "infoAttack", description = "Maple Road: Inside the Small Forest")
 public class InfoAttack extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         avatarOriented("UI/tutorial.img/20", 7);
     }
 }

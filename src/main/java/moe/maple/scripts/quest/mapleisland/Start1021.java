@@ -22,9 +22,9 @@
 
 package moe.maple.scripts.quest.mapleisland;
 
+import moe.maple.api.script.logic.chain.BasicActionChain;
 import moe.maple.api.script.model.QuestScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.chain.BasicActionChain;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 
 @Script(name = "q1021s", description = "Roger's apple :wink:")
@@ -45,7 +45,7 @@ public class Start1021 extends QuestScript {
             slapUser();
         } else {
             if (user.exchange(0, apple, 1)) {
-                if (user.startQuest(1021)) {
+                if (startQuest()) {
                     slapUser();
                 } else {
                     say("Hmm.. I've detected a disturbance in the force.");
@@ -63,7 +63,7 @@ public class Start1021 extends QuestScript {
     }
 
     @Override
-    public void work() {
+    protected void work() {
         intro().andThen(() -> {
             askAccept("So... Let me cheer things up a bit! Abracadabra ~!", this::rogered, () -> {
                 say("No? To think you just turned down a nice guy like me!");

@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "PromiseDragon")
 public class PromiseDragon extends FieldScript {
     @Override
-    public void work() {
+    protected void work() {
         user.setStandAloneMode(true);
         user.setDirectionMode(true);
 

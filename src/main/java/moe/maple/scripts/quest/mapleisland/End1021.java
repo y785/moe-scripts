@@ -34,7 +34,7 @@ public class End1021 extends QuestScript {
     private final int health = 25;
 
     @Override
-    public void work() {
+    protected void work() {
         if (user.hasItem(2010007)) {
             // say("JUST EAT THE APPLE YOU SLU**Ahem**");
             say("Yo... I told you to eat the #r#t{}##k I gave you. Open the item wndow (press the #eI#n key) and click on the #bUSE# tab. Locate the #t{}#, it takes two clicks to use.", apple, apple);
@@ -45,7 +45,7 @@ public class End1021 extends QuestScript {
                         "Alright! Now that you have learned alot, I will give you a present. This is a must for your travel in Maple World, so thank me! Please use this under emergency cases!",
                         ScriptFormatter.format("Okay, this is all I can teach you. I know it's sad but it is time to say good bye. Well take care if yourself and Good luck my friend!\\r\\n\\r\\n{}4/0#\\r\\n#v2010000# 3 #t2010000#\\r\\n#v2010009# 3 #t2010009#\\r\\n\\r\\n{}8/0# 10 exp", file, file)).andThen(() -> {
                             if (user.exchange(0, Tuple.of(2010000, 9), Tuple.of(2010009, 9))) {
-                                if (user.completeQuest(1021)) {
+                                if (completeQuest()) {
                                     say("Move along to the portal!");
                                     user.increaseExp(10);
                                 } else {

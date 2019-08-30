@@ -29,7 +29,7 @@ import moe.maple.api.script.model.Script;
 public class TutoMesg0 extends PortalScript {
 
     @Override
-    public void work() {
+    protected void work() {
         balloon(150, 5, "Press the #e#bUP#k key#n to enter a portal. Once you leave this area, you won't be able to return.");
     }
 }

@@ -28,12 +28,13 @@ import moe.maple.api.script.model.Script;
 @Script(name = "rienArrow")
 public class RienArrow extends FieldScript {
     @Override
-    public void work() {
+    protected void work() {
+        var qh = user.getQuestHolder();
         if (user.isAran()) {
-            if (!user.containsQuestEx(21019, "arr", "o")) {
+            if (!qh.containsEx(21019, "arr", "o")) {
                 user.fireTutor(); // Just in-case?
 
-                user.setQuestEx(21019, "arr", "o");
+                qh.setEx(21019, "arr", "o");
                 avatarOriented("Effect/OnUserEff.img/guideEffect/aranTutorial/tutorialArrow3", 10);
             }
         }

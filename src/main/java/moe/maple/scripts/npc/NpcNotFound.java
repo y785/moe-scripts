@@ -32,7 +32,7 @@ import moe.maple.api.script.util.builder.ScriptStringBuilder;
 public class NpcNotFound extends MoeNotFound {
 
     @Override
-    public void work() {
+    protected void work() {
         var sb = new ScriptStringBuilder();
         var id = getSpeakerTemplateId();
 

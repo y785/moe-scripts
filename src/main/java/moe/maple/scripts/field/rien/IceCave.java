@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "iceCave")
 public class IceCave extends FieldScript {
     @Override
-    public void work() {
+    protected void work() {
         user.forgetSkill(20000014);
         user.forgetSkill(20000015);
         user.forgetSkill(20000016);

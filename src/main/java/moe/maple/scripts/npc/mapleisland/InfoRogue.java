@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "infoRogue", description = "Maple Road: Split Road of Destiny | Dark Lord")
 public class InfoRogue extends InfoBeginners {
     @Override
-    public void work() {
+    protected void work() {
         work("Thieves are a perfect blend of luck, dexterity, and power that are adept at the surprise attacks against helpless enemies. A high level of avoidability and speed allows Thieves to attack enemies from various angles.",
                 "Thief",
                 1020400);

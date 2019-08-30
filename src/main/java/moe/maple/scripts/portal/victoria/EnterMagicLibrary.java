@@ -28,10 +28,10 @@ import moe.maple.api.script.model.Script;
 @Script(name = "enterMagicLibrar")
 public class EnterMagicLibrary extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         // todo implement librar
         playPortalSE();
-        if (user.isQuestStarted(20718)) { // "Maybe It's Grendel!"
+        if (user.getQuestHolder().isInProgress(20718)) { // "Maybe It's Grendel!"
             user.transferField(910110000, 8);
             // An alternate Magic Library used for the Cygnus Quest
             // Supposed to have a 10 minute time limit. Maybe a FieldSet?

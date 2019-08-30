@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "infoPirate", description = "Maple Road: Split Road of Destiny | Kyrin")
 public class InfoPirate extends InfoBeginners {
     @Override
-    public void work() {
+    protected void work() {
         work("Pirates are blessed with outstanding dexterity and power, utilizing their guns for long-range attacks while using their power on melee combat situations. Gunslingers use elemental-based bullets for added damage, while Infighters transform to a different being for maximum effect.",
                 "Pirate",
                 1020500);

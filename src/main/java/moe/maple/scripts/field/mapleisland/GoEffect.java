@@ -27,7 +27,7 @@ import moe.maple.api.script.model.FieldScript;
 public class GoEffect extends FieldScript {
 
     @Override
-    public void work() {
+    protected void work() {
         if (field.getId() == 1020000) {
             user.setStandAloneMode(false);
             user.setDirectionMode(false);

@@ -76,7 +76,7 @@ public class AquaTaxi extends NpcScript {
     }
 
     @Override
-    public void work() {
+    protected void work() {
         if (user.hasItem(ticket)) {
             coupon();
         } else {

@@ -28,17 +28,19 @@ import moe.maple.api.script.model.Script;
 @Script(name = "entertraining", description = "Maple Road: Entrance to Adventurer Training Center | Mai's quests")
 public class EnterTraining extends PortalScript {
     @Override
-    public void work() {
-        if (user.isQuestStarted(1041)) {
+    protected void work() {
+        var qh = user.getQuestHolder();
+
+        if (qh.isInProgress(1041)) {
             playPortalSE();
             user.transferField(1010100, "sp");
-        } else if (user.isQuestStarted(1042)) {
+        } else if (qh.isInProgress(1042)) {
             playPortalSE();
             user.transferField(1010200, "sp");
-        } else if (user.isQuestStarted(1043)) {
+        } else if (qh.isInProgress(1043)) {
             playPortalSE();
             user.transferField(1010300, "sp");
-        } else if (user.isQuestStarted(1044)) {
+        } else if (qh.isInProgress(1044)) {
             playPortalSE();
             user.transferField(1010400, "sp");
         } else {

@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "minar_job4")
 public class MinarJob4 extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         // todo w h y d o e s t h i s e x i s t
         playPortalSE();
         user.transferField(240010501, "out00");

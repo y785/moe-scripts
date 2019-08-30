@@ -28,13 +28,13 @@ import moe.maple.api.script.model.Script;
 @Script(name = "rienTutor8")
 public class RienTutor8 extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         if (user.isAran()) {
-            if (user.isQuestStarted(21015)) {
+            if (user.getQuestHolder().isInProgress(21015)) {
                 say("You must exit to the RIGHT in order to find Murupas.");
-            } else if (user.isQuestStarted(21016)) {
+            } else if (user.getQuestHolder().isInProgress(21016)) {
                 say("You must exit to the RIGHT in order to find Murupias.");
-            } else if (user.isQuestStarted(21016)) {
+            } else if (user.getQuestHolder().isInProgress(21016)) {
                 say("You must exit to the RIGHT in order to find Murupias.");
             } else {
                 playPortalSE();

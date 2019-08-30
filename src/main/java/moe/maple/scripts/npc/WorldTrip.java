@@ -82,7 +82,7 @@ public class WorldTrip extends NpcScript {
     }
 
     @Override
-    public void work() {
+    protected void work() {
         var variable = user.getScriptVariable(Constants.VARIABLE_ID);
 
         final int returnMap = Naughty.toInt(variable, 100000000);

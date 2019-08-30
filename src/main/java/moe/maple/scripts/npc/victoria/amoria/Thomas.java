@@ -32,7 +32,7 @@ public class Thomas extends NpcScript {
     private final int amoria = 680000000;
 
     @Override
-    public void work() {
+    protected void work() {
         // Normally this is only ever Henesys <-> Amoria
         // But :shrug:
         var variable = user.getScriptVariable("amoria");

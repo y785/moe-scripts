@@ -28,8 +28,8 @@ import moe.maple.api.script.model.Script;
 @Script(name = "rienTutor3")
 public class RienTutor3 extends PortalScript {
     @Override
-    public void work() {
-        if (user.isQuestCompleted(21012)) {
+    protected void work() {
+        if (user.getQuestHolder().isComplete(21012)) {
             playPortalSE();
             user.transferField(140090400, 1);
         } else {

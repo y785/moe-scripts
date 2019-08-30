@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "rankRoom")
 public class RankRoom extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         var portal = "out00";
         var warpTo = 0;
 

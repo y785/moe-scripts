@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "infoMagician", description = "Maple Road: Split Road of Destiny | Grendel the Really Old")
 public class InfoMagician extends InfoBeginners {
     @Override
-    public void work() {
+    protected void work() {
         work("Magicians are armed with flashy element-based spells and secondary magic that aids party as a whole. After the 2nd job adv., the elemental-based magic will provide ample amount of damage to enemies of opposite element.",
                 "Magician",
                 1020200);

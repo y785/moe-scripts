@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "rienTutor6")
 public class RienTutor6 extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         user.fireTutor();
     }
 }

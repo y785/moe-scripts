@@ -29,7 +29,7 @@ import moe.maple.api.script.model.Script;
 public class Go1000000 extends GoEffect {
 
     @Override
-    public void work() {
+    protected void work() {
         super.work();
     }
 }

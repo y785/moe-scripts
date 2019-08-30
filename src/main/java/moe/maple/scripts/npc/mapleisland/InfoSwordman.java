@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "infoSwordman", description = "Maple Road: Split Road of Destiny | Dances with Balrog")
 public class InfoSwordman extends InfoBeginners {
     @Override
-    public void work() {
+    protected void work() {
         work("Warriors possess an enormous power with stamina to back it up, and they shine the brightest in melee combat situation. Regular attacks are powerful to begin with, and armed with complex skills, the job is perfect for explosive attacks.",
                 "Warrior",
                 1020100);

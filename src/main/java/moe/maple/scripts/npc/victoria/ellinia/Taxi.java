@@ -30,7 +30,7 @@ import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 public class Taxi extends VictoriaBasicTaxi {
 
     @Override
-    public void work() {
+    protected void work() {
         super.work(Tuple.of(104000000, 1200),
                 Tuple.of(102000000, 1000),
                 Tuple.of(100000000, 1000),

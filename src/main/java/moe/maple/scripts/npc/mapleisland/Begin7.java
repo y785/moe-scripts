@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "begin7", description = "Southperry | Shanks")
 public class Begin7 extends NpcScript {
     @Override
-    public void work() {
+    protected void work() {
         final int letter = 4031801;
         final int cost = 150;
         final int warpTo = 2010000;

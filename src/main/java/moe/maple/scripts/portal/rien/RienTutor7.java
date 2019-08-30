@@ -28,8 +28,8 @@ import moe.maple.api.script.model.Script;
 @Script(name = "rienTutor7")
 public class RienTutor7 extends PortalScript {
     @Override
-    public void work() {
-        if (user.isAran() && !user.isQuestCompleted(21014)) {
+    protected void work() {
+        if (user.isAran() && !user.getQuestHolder().isComplete(21014)) {
             balloon("The town of Rien is to the right. Take the portal on the right and go into town to meet Lilin.");
         } else {
             playPortalSE();

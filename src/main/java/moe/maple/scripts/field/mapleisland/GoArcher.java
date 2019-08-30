@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "goArcher")
 public class GoArcher extends FieldScript {
     @Override
-    public void work() {
+    protected void work() {
         reservedEffect("Effect/Direction3.img/archer/Scene" + user.getGender());
     }
 }

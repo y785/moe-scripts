@@ -29,7 +29,7 @@ import moe.maple.api.script.model.Script;
 public class MBoxItem0 extends ReactorScript {
 
     @Override
-    public void work() {
+    protected void work() {
         if (self.getState() == 4) {
             self.drop();
         }

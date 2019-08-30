@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "infoMinimap", description = "Maple Road: Mushroom Town")
 public class InfoMinimap extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         avatarOriented("UI/tutorial.img/25", 7);
     }
 }

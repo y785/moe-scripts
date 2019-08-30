@@ -31,7 +31,7 @@ import moe.maple.api.script.util.builder.ScriptStringBuilder;
 public class FieldNotFound extends MoeNotFound {
 
     @Override
-    public void work() {
+    protected void work() {
         var sb = new ScriptStringBuilder();
 
         sb.append("Field is missing Script: ").append(expected);

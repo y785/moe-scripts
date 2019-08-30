@@ -46,7 +46,7 @@ public class EngageRing extends NpcScript {
     }
 
     @Override
-    public void work() {
+    protected void work() {
         askMenu("Have you found true love? If so, I can make you a ring worthy of your devotion...", "I would like to make an engagement ring for my lover.", "I want an annulment.").andThen(sel -> {
             if (sel == 0) {
                 engagement();

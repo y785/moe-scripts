@@ -33,7 +33,7 @@ public class AranDirection extends FieldScript {
     private static final Logger log = LoggerFactory.getLogger( AranDirection.class );
 
     @Override
-    public void work() {
+    protected void work() {
         var startId = 914090010;
         var fieldId = user.getFieldId();
         if (fieldId == startId || fieldId == 914090100) {

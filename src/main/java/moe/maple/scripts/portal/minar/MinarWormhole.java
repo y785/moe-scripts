@@ -29,7 +29,7 @@ import moe.maple.api.script.util.builder.ScriptFormatter;
 @Script(name = "minar_elli")
 public class MinarWormhole extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         var elliniaId = 101010000;
         var leafreId = 240010100; //Minar Forest : West Border
 

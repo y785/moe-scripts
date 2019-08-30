@@ -31,7 +31,7 @@ public class CygnusJobTutorial extends FieldScript {
     private final int startField = 913040100;
 
     @Override
-    public void work() {
+    protected void work() {
         var fieldId = user.getFieldId();
 
         if (fieldId > startField + 6 || fieldId < startField) {

@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "go20000", description = "Maple Road: Snail Park")
 public class Go20000 extends GoEffect {
     @Override
-    public void work() {
+    protected void work() {
         super.work();
     }
 }

@@ -84,7 +84,7 @@ public class AboutTheWedding extends NpcScript {
     }
 
     @Override
-    public void work() {
+    protected void work() {
         loop();
     }
 }

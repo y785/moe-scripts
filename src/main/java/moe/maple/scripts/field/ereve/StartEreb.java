@@ -28,10 +28,10 @@ import moe.maple.api.script.model.Script;
 @Script(name = "startEreb")
 public class StartEreb extends FieldScript {
     @Override
-    public void work() {
+    protected void work() {
         // Reset from CygnusJobTutorial
         // todo check if user is ready to get knighted, maybe check ua
-        if (user.isCygnus() && !user.isQuestCompleted(20020) && user.getLevel() >= 5) {
+        if (user.isCygnus() && !user.getQuestHolder().isComplete(20020) && user.getLevel() >= 5) {
             user.setStandAloneMode(false);
             user.setDirectionMode(false);
         }/* else if (user.getHighestLevelKnight() <= 1 && !user.isCygnus() && user.getLevel() >= 20) {

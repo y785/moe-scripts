@@ -29,7 +29,7 @@ import moe.maple.api.script.model.Script;
 public class TutoChatNPC extends PortalScript {
 
     @Override
-    public void work() {
+    protected void work() {
         // Talk to Maple Administrator
         // Maple Admin - tutorialSkip.js
         user.talkTo(2007);

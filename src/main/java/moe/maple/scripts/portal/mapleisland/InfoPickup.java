@@ -29,7 +29,7 @@ import moe.maple.api.script.model.Script;
 public class InfoPickup extends PortalScript {
 
     @Override
-    public void work() {
+    protected void work() {
         avatarOriented("UI/tutorial.img/21", 7);
     }
 }

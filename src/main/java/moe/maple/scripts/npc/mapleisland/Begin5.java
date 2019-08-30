@@ -80,7 +80,7 @@ public class Begin5 extends NpcScript {
                 }));
     }
     @Override
-    public void work() {
+    protected void work() {
         askHelp();
     }
 }

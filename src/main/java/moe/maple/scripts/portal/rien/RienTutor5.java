@@ -28,7 +28,7 @@ import moe.maple.api.script.model.Script;
 @Script(name = "rienTutor5")
 public class RienTutor5 extends PortalScript {
     @Override
-    public void work() {
+    protected void work() {
         user.tutorMessage("You're very close to town. I'll head over there first since I have some things to take care of. You take your time.");
     }
 }

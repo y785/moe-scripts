@@ -31,7 +31,7 @@ import moe.maple.api.script.util.builder.ScriptStringBuilder;
 public class QuestNotFound extends MoeNotFound {
 
     @Override
-    public void work() {
+    protected void work() {
         var sb = new ScriptStringBuilder();
 
         sb.append("Missing Script: ").append(expected);
