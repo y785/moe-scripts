@@ -28,7 +28,7 @@
 
     <groupId>moe.maple</groupId>
     <artifactId>scripts</artifactId>
-    <version>1.0.0</version>
+    <version>1.5.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -83,7 +83,7 @@
         <dependency>
             <groupId>moe.maple</groupId>
             <artifactId>script-api</artifactId>
-            <version>1.5.1-ALPHA</version>
+            <version>1.5.2-ALPHA</version>
         </dependency>
         <!-- Logging -->
         <dependency>
