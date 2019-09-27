@@ -35,7 +35,7 @@ public class SellTicket extends NpcScript {
     }
 
     private void sellTicket(int ticket, int price, int time, String movingTo) {
-        sellTicket(ticket, price, String.format("Hi there! I'm in charge of selling tickets for this station. The ship to #b%s#k departs every %d minutes, starting #bat the top of the hour and every %d minutes afterwards#k, and will cost you #b%,d mesos#k. Are you sure you want to buy #b#t%d##k?", movingTo, time, time, price, ticket));
+        sellTicket(ticket, price, String.format("Hello, I'm in charge of selling tickets for the ship ride to %s. The ship to #b%s#k takes off every %d minutes, beginning on the hour, and will cost you #b%,d mesos#k. Are you sure you want to purchase a #b#t%d##k?", movingTo, movingTo, time, price, ticket));
     }
 
     private void sellTicket(int ticket, int price, String message) {
