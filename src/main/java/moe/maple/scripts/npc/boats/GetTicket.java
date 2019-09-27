@@ -56,9 +56,9 @@ public class GetTicket extends NpcScript {
         var fid = field.getId();
         var state = server.getContiState(fid);
 
-        if (state != 1) {
-            say("We will begin boarding 5 minutes before departure. Please be patient and wait a few minutes.");
-        } else {
+        if (state == 2) {
+            // todo handle period between boarding -> moving
+        } else if (state == 1) {
             var target = fid + 1;
             if (fid == 101000300 || fid == 200000111) {
                 // Orbis <-> Ellinia
@@ -77,8 +77,12 @@ public class GetTicket extends NpcScript {
                 work(target, ticket);
             } else if (fid == 200000151 || fid == 260000100) {
                 // Orbis <-> Ariant
-                // todo
+                var ticket = fid == 200000151 ? 4031576 : 4031045;
+                if (beginner) -- ticket;
+                work(target, ticket);
             }
+        } else {
+            say("We will begin boarding 5 minutes before departure. Please be patient and wait a few minutes.");
         }
     }
 }
