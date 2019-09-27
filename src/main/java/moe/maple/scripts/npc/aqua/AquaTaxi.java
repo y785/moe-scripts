@@ -24,6 +24,7 @@ package moe.maple.scripts.npc.aqua;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 
 @Script(name = "aqua_taxi", description = "The shady dolphin in aqua")
@@ -34,8 +35,8 @@ public class AquaTaxi extends NpcScript {
     private void coupon() {
         final int villageCost = user.isBeginner() ? cost / 10 : cost;
         askMenu("The oceans are all connected to each other. The places you can not walk to can easily go by the sea. What do you think of taking the #bTaxi-Dolphin#k with us today?",
-                ScriptFormatter.format("I will use #e#t{}##n to go to #eThe Sharp Unknown#n.", ticket),
-                ScriptFormatter.format("Go to #eHerb Village#n after paying {} mesos.", String.format("%,d", villageCost))).andThen(sel -> {
+                Moematter.format("I will use #e#t{}##n to go to #eThe Sharp Unknown#n.", ticket),
+                Moematter.format("Go to #eHerb Village#n after paying {} mesos.", String.format("%,d", villageCost))).andThen(sel -> {
                     if (sel == 0) {
                         if (user.exchange(0, ticket, -1)) {
                             user.transferField(230030200, "st00");
@@ -58,7 +59,7 @@ public class AquaTaxi extends NpcScript {
 
         var message = user.isBeginner() ? "The oceans are all connected to each other. The places where you can not go on foot you can easily go by the sea. What do you think about taking the #bTaxi-Dolphin#k with us today? We have special tickets with 90% discount for beginners!" : "The oceans are all connected to each other. The places where you can not go on foot you can easily go by the sea. What do you think about taking the #bTaxi-Dolphin#k with us today?";
 
-        askMenu(message, ScriptFormatter.format("Go to #eThe Sharp Unknown#n for {} mesos", String.format("%,d", unknownCost)), ScriptFormatter.format("Go to #eHerb Village#n after paying {} mesos.", String.format("%,d", villageCost))).andThen(sel -> {
+        askMenu(message, Moematter.format("Go to #eThe Sharp Unknown#n for {} mesos", String.format("%,d", unknownCost)), Moematter.format("Go to #eHerb Village#n after paying {} mesos.", String.format("%,d", villageCost))).andThen(sel -> {
             if (sel == 0) {
                 if (user.decreaseMoney(unknownCost)) {
                     user.transferField(230030200, "st00");

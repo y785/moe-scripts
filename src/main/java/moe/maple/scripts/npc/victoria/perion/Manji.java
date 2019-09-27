@@ -24,6 +24,7 @@ package moe.maple.scripts.npc.victoria.perion;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 
 @Script(name = "Manji", description = "Manji in perion, at the top of the map, being emo")
@@ -32,7 +33,7 @@ public class Manji extends NpcScript {
     protected void work() {
         var cost = 10000;
 
-        askYesNo(ScriptFormatter.format("What? You want a shot at sealing Balrog? A weakling like you might not make it back in one piece! Well, I suppose it isn't my business. Alright, you need to pay a fee of #b{} Mesos#k. Do you have enough Mesos on you?", String.format("%,d", cost)), () -> {
+        askYesNo(Moematter.format("What? You want a shot at sealing Balrog? A weakling like you might not make it back in one piece! Well, I suppose it isn't my business. Alright, you need to pay a fee of #b{} Mesos#k. Do you have enough Mesos on you?", String.format("%,d", cost)), () -> {
             say("Alright, don't disappoint me now. You'll be able to participate in the Expedition Team if you visit my apprentice #bMu Young#k, upon your arrival.").andThen(() -> {
                 if (user.decreaseMoney(cost)) {
                     user.transferField(105100100);

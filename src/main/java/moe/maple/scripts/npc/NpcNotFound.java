@@ -38,7 +38,7 @@ public class NpcNotFound extends MoeNotFound {
 
         sb.append("Hello, my script is missing ^-^.\r\n");
         sb.append("Script: ").red().append(expected).black().append("\r\n");
-        sb.append("Field: ").purple().append(getFieldObect().map(FieldObject::getId).orElse(0)).black().append("\r\n");
+        sb.append("Field: ").purple().append(getFieldObject().map(FieldObject::getId).orElse(0)).black().append("\r\n");
         sb.append("Npc: ").blue().append(id).black().append("\r\n");
         sb.append("If you know how this NPC works, feel free to contact staff. The goal is to have all NPCs GMS-like. I'm working as fast as I can, but there are hundreds of scripts to write. Sorry for the inconvenience. ^-^");
 

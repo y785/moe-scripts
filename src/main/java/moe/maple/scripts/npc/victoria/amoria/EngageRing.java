@@ -24,6 +24,7 @@ package moe.maple.scripts.npc.victoria.amoria;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 
 @Script(name = "EngageRing", description = "Moony in Amoria")
@@ -36,7 +37,7 @@ public class EngageRing extends NpcScript {
     private void annulment() {
         final int cost = 500000;
         say("The only way for a married couple to annul the marriage is by destroying their Wedding rings, and that's where I come in. If you are really sure of breaking this eternal bond, then please remove the rings from your hand, and then let me know.").andThen(() -> {
-            askYesNo(ScriptFormatter.format("How unfortunate. I can end your marriage via annulment by breaking your ring, but please reemmber you will no longer be married after this. My annulment fee for marriage is #b{} mesos#k. As you know, I don't take checks. Are you sure you want to get your marriage annulled?", String.format("%,d", cost)), () -> {
+            askYesNo(Moematter.format("How unfortunate. I can end your marriage via annulment by breaking your ring, but please reemmber you will no longer be married after this. My annulment fee for marriage is #b{} mesos#k. As you know, I don't take checks. Are you sure you want to get your marriage annulled?", String.format("%,d", cost)), () -> {
                 // todo, check rings, remove money, do the dew
                 say("All done... remember to head back to Amoria if you find true love!");
             }, () -> {

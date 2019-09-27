@@ -23,6 +23,7 @@
 package moe.maple.scripts.npc.victoria;
 
 import moe.maple.api.script.model.NpcScript;
+import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 import moe.maple.api.script.util.builder.ScriptStringBuilder;
 import moe.maple.api.script.util.tuple.Tuple;
@@ -52,14 +53,14 @@ public abstract class VictoriaBasicTaxi extends NpcScript {
             var ssb = new ScriptStringBuilder();
             var beginner = user.isBeginner();
             if (beginner)
-                ssb.appendFormat("We have a special discount of {}% for beginners", 100 - discount);
+                ssb.appendf("We have a special discount of {}% for beginners", 100 - discount);
             ssb.append("Select your destination. The rate varies from place to place...\r\n");
 
 
             ssb.newLine().blue().appendMenu((tp) -> {
                 var town = tp.left();
                 var cost = tp.right();
-                var ret = ScriptFormatter.format("#m{}# ({} mesos)", town, cost);
+                var ret = Moematter.format("#m{}# ({} mesos)", town, cost);
                 return ret;
             }, townsAndPrice);
             ssb.black();

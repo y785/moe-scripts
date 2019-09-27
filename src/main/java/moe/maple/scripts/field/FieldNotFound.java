@@ -35,7 +35,7 @@ public class FieldNotFound extends MoeNotFound {
         var sb = new ScriptStringBuilder();
 
         sb.append("Field is missing Script: ").append(expected);
-        sb.append(", Field: ").append(getFieldObect().map(FieldObject::getId).orElse(0));
+        sb.append(", Field: ").append(getFieldObject().map(FieldObject::getId).orElse(0));
 
         message(sb.toString());
     }

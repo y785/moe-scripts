@@ -59,9 +59,9 @@ public class WorldTrip extends NpcScript {
 
         ssb.append("If you're tired of the monotony of daily life, it might be time for a change, and the #bMaple Travel Agency#k is here to give your life a new sense of adventure! For a low, low fee, we can offer you a #bWorld Tour#k that will make your dreariest days sparkle! ");
         if (user.isBeginner()) {
-            ssb.appendFormat("The #bMaple Travel Agency#k has a special offer for beginners - a fee of #b{} mesos#k", cost);
+            ssb.appendf("The #bMaple Travel Agency#k has a special offer for beginners - a fee of #b{} mesos#k", cost);
         } else {
-            ssb.appendFormat("Our standard travel package is ONLY #b{} mesos!#k", cost);
+            ssb.appendf("Our standard travel package is ONLY #b{} mesos!#k", cost);
         }
         ssb.append("You can view our always expanding list of destinations for your traveling pleasure below. Make your selection and I'll be there to serve you as your travel guide.");
         ssb.blue().newLine().appendMenu("Take me to the #bMushroom Shrine of Japan#k");

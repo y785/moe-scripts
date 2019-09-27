@@ -24,6 +24,7 @@ package moe.maple.scripts.npc.mapleisland;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 
 @Script(name = "InfoBeginners")
@@ -31,12 +32,12 @@ public abstract class InfoBeginners extends NpcScript {
 
     protected void work(String messageSay, String name, int fieldTo) {
         say(messageSay).andThen(() -> {
-            askYesNo(ScriptFormatter.format("Would you like to experience what it's like to be a {}?", name), () -> {
+            askYesNo(Moematter.format("Would you like to experience what it's like to be a {}?", name), () -> {
                 user.setStandAloneMode(true);
                 user.setDirectionMode(true);
                 user.transferField(fieldTo);
             }, () -> {
-                say(ScriptFormatter.format("If you wish to experience what it's like to be a {}, come see me again.", name));
+                say(Moematter.format("If you wish to experience what it's like to be a {}, come see me again.", name));
             });
         });
     }

@@ -83,7 +83,7 @@
         <dependency>
             <groupId>moe.maple</groupId>
             <artifactId>script-api</artifactId>
-            <version>1.5.2-ALPHA</version>
+            <version>1.5.10-ALPHA</version>
         </dependency>
         <!-- Logging -->
         <dependency>

@@ -24,6 +24,7 @@ package moe.maple.scripts.portal.minar;
 
 import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 
 @Script(name = "minar_elli")
@@ -39,10 +40,10 @@ public class MinarWormhole extends PortalScript {
             playPortalSE();
             if (user.getFieldId() == leafreId) {
                 user.transferField(elliniaId, "minar00");
-                message(ScriptFormatter.format("Using the Magical Seed, you have been transported to another place. You have {} seed(s) left.", user.getItemCount(magicSeed)));
+                message(Moematter.format("Using the Magical Seed, you have been transported to another place. You have {} seed(s) left.", user.getItemCount(magicSeed)));
             } else {
                 user.transferField(leafreId, "elli00");
-                message(ScriptFormatter.format("Using the Magical Seed, you have been transported to another place. You have {} seed(s) left.", user.getItemCount(magicSeed)));
+                message(Moematter.format("Using the Magical Seed, you have been transported to another place. You have {} seed(s) left.", user.getItemCount(magicSeed)));
             }
         } else {
             message("The Magical Seed is needed to go through the portal.");

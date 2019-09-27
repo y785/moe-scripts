@@ -37,6 +37,6 @@ public class Naughty {
     public static int toInt(String value, int def) {
         if (value == null || value.isEmpty() || !numeric.test(value))
             return def;
-        return Integer.valueOf(value);
+        return Integer.parseInt(value);
     }
 }

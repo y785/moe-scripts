@@ -24,6 +24,7 @@ package moe.maple.scripts.quest.mapleisland;
 
 import moe.maple.api.script.model.QuestScript;
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 import moe.maple.api.script.util.tuple.Tuple;
 
@@ -43,7 +44,7 @@ public class End1021 extends QuestScript {
                 final var file = "#fUI/UIWindow.img/QuestIcon/";
                 say("Told you! How easy was it to consume the item? You can set a #bhotkey#k by dragging active items to the bottom right 'quick slot' menu. Bet you didn't know that!\\r\\nOh, and if you are a beginner, HP will automatically recover itself as time goes by. It takes a while but it's a strategy that may help you in the future.",
                         "Alright! Now that you have learned alot, I will give you a present. This is a must for your travel in Maple World, so thank me! Please use this under emergency cases!",
-                        ScriptFormatter.format("Okay, this is all I can teach you. I know it's sad but it is time to say good bye. Well take care if yourself and Good luck my friend!\\r\\n\\r\\n{}4/0#\\r\\n#v2010000# 3 #t2010000#\\r\\n#v2010009# 3 #t2010009#\\r\\n\\r\\n{}8/0# 10 exp", file, file)).andThen(() -> {
+                        Moematter.format("Okay, this is all I can teach you. I know it's sad but it is time to say good bye. Well take care if yourself and Good luck my friend!\\r\\n\\r\\n{}4/0#\\r\\n#v2010000# 3 #t2010000#\\r\\n#v2010009# 3 #t2010009#\\r\\n\\r\\n{}8/0# 10 exp", file, file)).andThen(() -> {
                             if (user.exchange(0, Tuple.of(2010000, 9), Tuple.of(2010009, 9))) {
                                 if (completeQuest()) {
                                     say("Move along to the portal!");

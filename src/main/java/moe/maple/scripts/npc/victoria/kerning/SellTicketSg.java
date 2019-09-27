@@ -24,6 +24,7 @@ package moe.maple.scripts.npc.victoria.kerning;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 
 @Script(name = "sellticket_sg", description = "Irene in kerning")
@@ -34,7 +35,7 @@ public class SellTicketSg extends NpcScript {
     private void sellTicket() {
         final int cost = 20000;
 
-        askYesNo(ScriptFormatter.format("The ticket will cost you #b{} mesos.#k Will you purchase the ticket?", String.format("%,d", cost)), () -> {
+        askYesNo(Moematter.format("The ticket will cost you #b{} mesos.#k Will you purchase the ticket?", String.format("%,d", cost)), () -> {
             if (!user.exchange(cost, ticket, 1)) {
                 say("Your inventory is full or you don't have the mesos required.");
             }

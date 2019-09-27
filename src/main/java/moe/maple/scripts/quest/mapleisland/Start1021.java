@@ -25,6 +25,7 @@ package moe.maple.scripts.quest.mapleisland;
 import moe.maple.api.script.logic.chain.BasicActionChain;
 import moe.maple.api.script.model.QuestScript;
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.ScriptFormatter;
 
 @Script(name = "q1021s", description = "Roger's apple :wink:")
@@ -58,8 +59,8 @@ public class Start1021 extends QuestScript {
 
     private void slapUser() {
         user.decreaseHealth(health);
-        say(ScriptFormatter.format("Surprised? If your HP reaches #r0#k, then you are in trouble.\\r\\nTake this apple, we'll call it #r#t{}##k. Consume it and you will feel stronger.\\r\\nOpen the item window and double click it, come on!\\r\\nHey, it's very simple to open the item window...\\r\\nJust press #eI#n on your keyboard.", apple),
-                ScriptFormatter.format("Go ahead and take the #r#t${}##k I gave you. You can see the red HP bar increase on the bottom of the screen. Talk to me again when you recover up to ${} HP.#I", apple, health));
+        say(Moematter.format("Surprised? If your HP reaches #r0#k, then you are in trouble.\\r\\nTake this apple, we'll call it #r#t{}##k. Consume it and you will feel stronger.\\r\\nOpen the item window and double click it, come on!\\r\\nHey, it's very simple to open the item window...\\r\\nJust press #eI#n on your keyboard.", apple),
+                Moematter.format("Go ahead and take the #r#t${}##k I gave you. You can see the red HP bar increase on the bottom of the screen. Talk to me again when you recover up to ${} HP.#I", apple, health));
     }
 
     @Override
