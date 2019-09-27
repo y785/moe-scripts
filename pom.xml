@@ -28,9 +28,10 @@
 
     <groupId>moe.maple</groupId>
     <artifactId>scripts</artifactId>
-    <version>1.5.0</version>
+    <version>${moe.api.version}</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <moe.api.version>1.5.10-ALPHA</moe.api.version>
     </properties>
     <build>
         <plugins>
@@ -83,14 +84,9 @@
         <dependency>
             <groupId>moe.maple</groupId>
             <artifactId>script-api</artifactId>
-            <version>1.5.10-ALPHA</version>
+            <version>${moe.api.version}</version>
         </dependency>
         <!-- Logging -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.25</version>
-        </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>

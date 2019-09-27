@@ -20,26 +20,30 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.field;
+package moe.maple.scripts.portal.boats;
 
-import moe.maple.api.script.helper.MoeNotFound;
+import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.FieldObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Script(name = "moe_script_missing")
-public class FieldNotFound extends MoeNotFound {
+@Script(name = "elevator", description = "Elevator script for Helios Tower 99th -> 2nd floor")
+public class Elevator extends PortalScript {
 
-    private static final Logger log = LoggerFactory.getLogger( FieldNotFound.class );
+    private static final Logger log = LoggerFactory.getLogger( Elevator.class );
 
     @Override
     protected void work() {
-        var sb = new ScriptStringBuilder();
+        var fid = field.getId();
+        var topFloor = 222020200;
+        var btmFloor = 222020100;
 
-        sb.append("Field is missing Script: ").append(expected);
-        sb.append(", Field: ").append(getFieldObject().map(FieldObject::getId).orElse(0));
-        message(sb.toString());
+        if (fid == topFloor)
+            if (server.getContiState(topFloor) == 1) user.transferField(222020210, "st00");
+            else balloon("At the moment, the elevator is not available. Please try again later.");
+        else if (fid == btmFloor)
+            if (server.getContiState(btmFloor) == 1) user.transferField(222020110, "st00");
+            else balloon("At the moment, the elevator is not available. Please try again later.");
+        else log.warn("Unhandled script condition... Field: {}", fid);
     }
 }

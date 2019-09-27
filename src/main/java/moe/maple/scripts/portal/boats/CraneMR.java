@@ -20,26 +20,27 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.field;
+package moe.maple.scripts.portal.boats;
 
-import moe.maple.api.script.helper.MoeNotFound;
+import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.model.object.FieldObject;
-import moe.maple.api.script.util.builder.ScriptStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Script(name = "moe_script_missing")
-public class FieldNotFound extends MoeNotFound {
+@Script(name = "crane_MR",
+        description = "Orbis -> Mu Lung")
+public class CraneMR extends PortalScript {
 
-    private static final Logger log = LoggerFactory.getLogger( FieldNotFound.class );
+    private static final Logger log = LoggerFactory.getLogger( CraneMR.class );
 
     @Override
     protected void work() {
-        var sb = new ScriptStringBuilder();
-
-        sb.append("Field is missing Script: ").append(expected);
-        sb.append(", Field: ").append(getFieldObject().map(FieldObject::getId).orElse(0));
-        message(sb.toString());
+        var name = "Crane_MR";
+        server.getFieldSet(name).ifPresentOrElse(fieldset -> {
+            if (fieldset.getQuestTime() >= 58)
+                user.transferField(250000100);
+        }, () -> {
+            log.warn("FieldSet({}) not found. Script is kindov' broken.", name);
+        });
     }
 }

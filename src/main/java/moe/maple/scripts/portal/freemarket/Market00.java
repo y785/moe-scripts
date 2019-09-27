@@ -29,7 +29,8 @@ import moe.maple.scripts.util.Naughty;
 /**
  * Oh boy! All the portals in one!
  */
-@Script(name = {"market00", "market01", "market02", "market03", "market04", "market05", "market06", "market07", "market08", "market09", "market10", "market11", "market12", "market13", "market14", "market15", "market16", "market17", "market18", "market19", "market20", "market21", "market22", "market23", "market24"}, description = "Free Market exit portal")
+@Script(name = {"market00", "market01", "market02", "market03", "market04", "market05", "market06", "market07", "market08", "market09", "market10", "market11", "market12", "market13", "market14", "market15", "market16", "market17", "market18", "market19", "market20", "market21", "market22", "market23", "market24"},
+        description = "Free Market exit portal")
 public class Market00 extends PortalScript {
     @Override
     protected void work() {
