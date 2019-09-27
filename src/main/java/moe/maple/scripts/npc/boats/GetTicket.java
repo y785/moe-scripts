@@ -58,6 +58,7 @@ public class GetTicket extends NpcScript {
 
         if (state == 2) {
             // todo handle period between boarding -> moving
+            say("We will begin boarding 5 minutes before departure. Please be patient and wait a few minutes.");
         } else if (state == 1) {
             var target = fid + 1;
             if (fid == 101000300 || fid == 200000111) {
