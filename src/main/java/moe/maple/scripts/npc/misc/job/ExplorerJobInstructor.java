@@ -5,8 +5,8 @@ import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.SayBuilder;
 import moe.maple.api.script.util.builder.ScriptStringBuilder;
 import moe.maple.api.script.util.tuple.Tuple;
-import odyssey.scripts.util.IntegerToWord;
-import odyssey.scripts.util.Jobs;
+import moe.maple.scripts.util.IntegerToWord;
+import moe.maple.scripts.util.Jobs;
 
 import java.util.List;
 import java.util.Optional;
