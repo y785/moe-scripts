@@ -30,7 +30,8 @@ import moe.maple.scripts.util.Naughty;
 import java.time.Duration;
 import java.time.Instant;
 
-@Script(name = "Populatus00", description = "The portal that leads to the boss map")
+@Script(name = "Populatus00",
+        description = "The portal that leads to the boss map")
 public class Populatus extends PortalScript {
 
     private final int LUDIBRIUM_MEDAL = 4031172;
