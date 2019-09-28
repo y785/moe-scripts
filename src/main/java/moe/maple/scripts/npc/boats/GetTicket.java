@@ -28,25 +28,33 @@ import moe.maple.api.script.model.object.FieldObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * There are quite a few differences compared to GMS.
- * 1) Map capacity isn't checked.
- * 2) Boat state instead of an off-the-hour approach.
- */
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 @Script(name = "get_ticket")
 public class GetTicket extends NpcScript {
 
-    private void work(int targetField, int ticketId) {
+    private void work(int termMin, int targetField, int ticketId) {
         final var FULL_RIDE_CAPACITY = 50;
+        var cal = GregorianCalendar.getInstance();
+        var minutes = cal.get(Calendar.MINUTE) % termMin;
 
-        if (server.getField(targetField).map(FieldObject::getUserCount).orElse(0) >= FULL_RIDE_CAPACITY) {
-            say("I'm sorry, but this ride is already FULL. We can't accept more passengers. Please board the next boat.");
+        var tRequired = termMin == 15 ? 10 : 5;
+        var tEnd = termMin - 1;
+        if (minutes < tRequired) {
+            say("We will begin boarding 5 minutes before departure. Please be patient and wait a few minutes.");
+        } else if (minutes >= tEnd) {
+            say("This ship is getting ready for takeoff. I'm sorry, but you'll have to get on the next ride. The ride schedule is available through the usher at the ticketing booth.");
         } else {
-            askYesNo("It looks like there's plenty of room for this ride. Please have your ticket ready so I can let you in. The ride will be long, but you'll get to your destination just fine. What do you think? Do you want to get on this ride?", () -> {
-                if (user.exchange(0, ticketId, -1)) {
-                    user.transferField(targetField);
-                }
-            }, () -> say("You must have some business to deal with here, right?"));
+            if (server.getField(targetField).map(FieldObject::getUserCount).orElse(0) >= FULL_RIDE_CAPACITY) {
+                say("I'm sorry, but this ride is already FULL. We can't accept more passengers. Please board the next boat.");
+            } else {
+                askYesNo("It looks like there's plenty of room for this ride. Please have your ticket ready so I can let you in. The ride will be long, but you'll get to your destination just fine. What do you think? Do you want to get on this ride?", () -> {
+                    if (user.exchange(0, ticketId, -1)) {
+                        user.transferField(targetField);
+                    }
+                }, () -> say("You must have some business to deal with here, right?"));
+            }
         }
     }
 
@@ -56,34 +64,27 @@ public class GetTicket extends NpcScript {
         var fid = field.getId();
         var state = server.getContiState(fid);
 
-        if (state == 2) {
-            // todo handle period between boarding -> moving
-            say("We will begin boarding 5 minutes before departure. Please be patient and wait a few minutes.");
-        } else if (state == 1) {
-            var target = fid + 1;
-            if (fid == 101000300 || fid == 200000111) {
-                // Orbis <-> Ellinia
-                var ticket = fid == 101000300 ? 4031045 : 4031047;
-                if (beginner) --ticket;
-                work(target, ticket);
-            } else if (fid == 200000121 || fid == 220000110) {
-                // Orbis <-> Ludibrium
-                var ticket = fid == 200000121 ? 4031074 : 4031045;
-                if (beginner) --ticket;
-                work(target, ticket);
-            } else if (fid == 200000131 || fid == 240000110) {
-                // Orbis <-> Leafre
-                var ticket = fid == 200000131 ? 4031331 : 4031045;
-                if (beginner) --ticket;
-                work(target, ticket);
-            } else if (fid == 200000151 || fid == 260000100) {
-                // Orbis <-> Ariant
-                var ticket = fid == 200000151 ? 4031576 : 4031045;
-                if (beginner) -- ticket;
-                work(target, ticket);
-            }
-        } else {
-            say("We will begin boarding 5 minutes before departure. Please be patient and wait a few minutes.");
+        var target = fid + 1;
+        if (fid == 101000300 || fid == 200000111) {
+            // Orbis <-> Ellinia
+            var ticket = fid == 101000300 ? 4031045 : 4031047;
+            if (beginner) --ticket;
+            work(15, target, ticket);
+        } else if (fid == 200000121 || fid == 220000110) {
+            // Orbis <-> Ludibrium
+            var ticket = fid == 200000121 ? 4031074 : 4031045;
+            if (beginner) --ticket;
+            work(10, target, ticket);
+        } else if (fid == 200000131 || fid == 240000110) {
+            // Orbis <-> Leafre
+            var ticket = fid == 200000131 ? 4031331 : 4031045;
+            if (beginner) --ticket;
+            work(10, target, ticket);
+        } else if (fid == 200000151 || fid == 260000100) {
+            // Orbis <-> Ariant
+            var ticket = fid == 200000151 ? 4031576 : 4031045;
+            if (beginner) -- ticket;
+            work(10, target, ticket);
         }
     }
 }
