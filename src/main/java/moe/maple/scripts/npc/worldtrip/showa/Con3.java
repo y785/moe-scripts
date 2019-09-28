@@ -20,33 +20,25 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.util;
+package moe.maple.scripts.npc.worldtrip.showa;
 
-import moe.maple.api.script.model.object.user.QuestObject;
+import moe.maple.api.script.model.NpcScript;
+import moe.maple.api.script.model.Script;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.function.Predicate;
+@Script(name = "con3", description = "Npc: 9120202")
+public class Con3 extends NpcScript {
 
-public class Naughty {
+    @Override
+    protected void work() {
+        final var BIG_BOSS_FLASHLIGHT = 4000141;
 
-    public static Predicate<CharSequence> numeric = cs -> {
-        for (int i = 0; i < cs.length(); ++i) {
-            if (!Character.isDigit(cs.charAt(i)))
-                return false;
+        if (user.hasItem(BIG_BOSS_FLASHLIGHT)) {
+            say("That... that flashlight!! You really defeated the boss...?? You...! Wow, I must have a knack for finding talent. That's just incredible! Now let's get out of here!")
+                    .andThen(() -> user.transferField(801040101));
+        } else {
+            askYesNo("Once you eliminate the boss, you'll have to show me the boss's flashlight as evidence. I won't believe it until you show me the flashlight! What? You want to leave this room?",
+                    () -> user.transferField(801040000),
+                    () -> say("I really admire your toughness! Well, if you decide to return to Showa Town, let me know~!"));
         }
-        return true;
-    };
-
-    public static int toInt(String value, int def) {
-        if (value == null || value.isEmpty() || !numeric.test(value))
-            return def;
-        return Integer.parseInt(value);
-    }
-
-    public static long toLong(String value, long def) {
-        if (value == null || value.isEmpty() || !numeric.test(value))
-            return def;
-        return Long.parseLong(value);
     }
 }

@@ -20,33 +20,18 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.util;
+package moe.maple.scripts.npc.worldtrip.showa;
 
-import moe.maple.api.script.model.object.user.QuestObject;
+import moe.maple.api.script.model.NpcScript;
+import moe.maple.api.script.model.Script;
 
-import java.time.Duration;
-import java.time.Instant;
-import java.util.function.Predicate;
+@Script(name = "con2", description = "Npc: 9120200")
+public class Con2 extends NpcScript {
 
-public class Naughty {
-
-    public static Predicate<CharSequence> numeric = cs -> {
-        for (int i = 0; i < cs.length(); ++i) {
-            if (!Character.isDigit(cs.charAt(i)))
-                return false;
-        }
-        return true;
-    };
-
-    public static int toInt(String value, int def) {
-        if (value == null || value.isEmpty() || !numeric.test(value))
-            return def;
-        return Integer.parseInt(value);
-    }
-
-    public static long toLong(String value, long def) {
-        if (value == null || value.isEmpty() || !numeric.test(value))
-            return def;
-        return Long.parseLong(value);
+    @Override
+    protected void work() {
+        askYesNo("Here you are, right in front of the hideout! What? You want to return to Showa Town? ", () -> {
+            user.transferField(801000000);
+        }, () -> say("If you want to return to Showa Town, then talk to me."));
     }
 }

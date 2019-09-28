@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc;
+package moe.maple.scripts.npc.worldtrip;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
