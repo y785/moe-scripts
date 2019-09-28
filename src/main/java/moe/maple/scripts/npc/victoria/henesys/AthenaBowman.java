@@ -1,6 +1,7 @@
 package moe.maple.scripts.npc.victoria.henesys;
 
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.model.helper.Exchange;
 import moe.maple.api.script.util.tuple.Tuple;
 import moe.maple.scripts.npc.misc.job.ExplorerJobInstructor;
 import moe.maple.scripts.util.Jobs;
@@ -90,8 +91,8 @@ public class AthenaBowman extends ExplorerJobInstructor {
     }
 
     @Override
-    protected List<Tuple<Integer, Integer>> getFirstJobExchangeRewards() {
-        return Tuple.listOf(1452051, 1, 2060000, 6000);
+    protected Exchange getFirstJobExchangeRewards() {
+        return new Exchange(0, Tuple.listOf(1452051, 1, 2060000, 6000));
     }
 
     @Override

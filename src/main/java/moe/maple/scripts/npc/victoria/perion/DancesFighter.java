@@ -1,6 +1,7 @@
 package moe.maple.scripts.npc.victoria.perion;
 
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.model.helper.Exchange;
 import moe.maple.api.script.util.tuple.Tuple;
 import moe.maple.scripts.npc.misc.job.ExplorerJobInstructor;
 import moe.maple.scripts.util.Jobs;
@@ -91,8 +92,8 @@ public class DancesFighter extends ExplorerJobInstructor {
     }
 
     @Override
-    protected List<Tuple<Integer, Integer>> getFirstJobExchangeRewards() {
-        return List.of(Tuple.of(1302077,1));
+    protected Exchange getFirstJobExchangeRewards() {
+        return new Exchange(0, List.of(Tuple.of(1302077,1)));
     }
 
     @Override
