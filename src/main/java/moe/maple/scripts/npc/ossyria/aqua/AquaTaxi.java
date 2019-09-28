@@ -20,12 +20,11 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.aqua;
+package moe.maple.scripts.npc.ossyria.aqua;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
 import moe.maple.api.script.util.Moematter;
-import moe.maple.api.script.util.builder.ScriptFormatter;
 
 @Script(name = "aqua_taxi", description = "The shady dolphin in aqua")
 public class AquaTaxi extends NpcScript {

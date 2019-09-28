@@ -20,11 +20,10 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria;
+package moe.maple.scripts.npc.misc;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.util.Moematter;
-import moe.maple.api.script.util.builder.ScriptFormatter;
 import moe.maple.api.script.util.builder.ScriptStringBuilder;
 import moe.maple.api.script.util.tuple.Tuple;
 import org.slf4j.Logger;
