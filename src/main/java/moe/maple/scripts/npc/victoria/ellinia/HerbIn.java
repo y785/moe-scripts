@@ -26,7 +26,7 @@ import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
 
 /* Translated directly from BMS */
-@Script(name = "herb_in", description = "Herb Jump Quest 'in' NPC")
+@Script(name = "herb_in", description = "Shane, Herb Jump Quest 'in' NPC")
 public class HerbIn extends NpcScript {
 
     @Override

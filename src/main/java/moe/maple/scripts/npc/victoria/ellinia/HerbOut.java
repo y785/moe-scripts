@@ -26,7 +26,7 @@ import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
 
 /**
- * Translated from BMS
+ * See {@link HerbIn}
  */
 @Script(name = "herb_out", description = "Herb Jump Quest 'out' NPC", field = 101000100)
 public class HerbOut extends NpcScript {
