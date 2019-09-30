@@ -40,10 +40,10 @@ public class Elevator extends PortalScript {
 
         if (fid == topFloor)
             if (server.getContiState(topFloor) == 1) user.transferField(222020210, "st00");
-            else balloon("At the moment, the elevator is not available. Please try again later.");
+            else balloon("The elevator is not available at the moment. Please try again later.");
         else if (fid == btmFloor)
             if (server.getContiState(btmFloor) == 1) user.transferField(222020110, "st00");
-            else balloon("At the moment, the elevator is not available. Please try again later.");
+            else balloon("The elevator is not available at the moment. Please try again later.");
         else log.warn("Unhandled script condition... Field: {}", fid);
     }
 }

@@ -20,21 +20,22 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.portal.pq;
 
+import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
+import moe.maple.scripts.util.Naughty;
+import moe.maple.scripts.util.fields.Victoria;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
+@Script(name = {"dojang_exit", "mc_out", "nets_out"},
+        description = "This is the exit script for all the mirror locations.")
+public class UnityPortalExit extends PortalScript {
 
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        var returnMap = Naughty.toInt("unityPortal", Victoria.Henesys);
+
+        playPortalSE();
+        user.transferField(returnMap);
     }
 }

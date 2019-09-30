@@ -22,6 +22,7 @@
 
 package moe.maple.scripts.portal.ludi;
 
+import moe.maple.api.script.logic.ScriptAPI;
 import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
 import moe.maple.api.script.model.object.FieldSetObject;

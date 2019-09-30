@@ -20,21 +20,23 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.npc.worldtrip;
 
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
+@Script(name = "goNinja", description = "Palanquin (9110107), ninja castle teleporter", field = {800000000, 800040000})
+public class GoNinja extends NpcScript {
 
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        var tpTo = field.getId() == 800000000 ? 800040000 : 800000000;
+        say("We are the bearers of palankeen~! Let the bearers take you anywhere, even to Sakura's Ninja Castle~!").andThen(() -> {
+            askYesNo("Oh what? What is it? Do you want to go visit Ninja Castle", () -> {
+                say("Okay, I got it! Just let us do the work, and you'll get there in the blink of an eye! Oh, and this won't cost you any money. Today's a good day for me, so I'll just let you get on it for free! Now, doesn't that make you feel good or what? Anyway, off we go!").andThen(() -> {
+                    user.transferField(tpTo);
+                });
+            });
+        });
     }
 }
