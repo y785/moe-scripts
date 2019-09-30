@@ -33,7 +33,7 @@ public class UnityPortalExit extends PortalScript {
 
     @Override
     protected void work() {
-        var returnMap = Naughty.toInt("unityPortal", Victoria.Henesys);
+        var returnMap = Naughty.toInt(user.getScriptVariable("unityPortal"), Victoria.Henesys);
 
         playPortalSE();
         user.transferField(returnMap);

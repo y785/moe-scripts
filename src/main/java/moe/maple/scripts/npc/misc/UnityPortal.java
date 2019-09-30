@@ -42,7 +42,7 @@ public class UnityPortal extends NpcScript {
     private final boolean DRAGONNEST_EVENT = true;
 
     private void saveAndTransfer(int targetId, String portalName) {
-        user.setScriptVariable("unityPortal", field.getId());
+        user.setScriptVariable("unityPortal", String.valueOf(field.getId()));
         user.transferField(targetId, portalName);
     }
 
