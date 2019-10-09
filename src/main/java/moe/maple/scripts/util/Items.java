@@ -20,21 +20,12 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.util;
 
-import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
+/**
+ * Common items, values used across multiple scripts.
+ */
+public class Items {
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
-
-    @Override
-    protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
-    }
+    public static final int EOS_ROCK_SCROLL = 4001020;
 }

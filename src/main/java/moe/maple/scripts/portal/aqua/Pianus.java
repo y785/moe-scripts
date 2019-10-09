@@ -20,21 +20,24 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.portal.aqua;
 
+import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
+@Script(name = "Pianus", description = "The portal that leads to the map where Pianus is.")
+public class Pianus extends PortalScript {
 
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        server.getFieldSet("Pianus").ifPresentOrElse(fs -> {
+            var count = fs.getUserCount();
+            if (count < 10) {
+                playPortalSE();
+                user.transferField(230040420);
+            } else {
+                message("The Cave of Pianus is currently full. Please come back later.");
+            }
+        }, () -> balloon("Please tell an admin that my fieldset is missing, UwU"));
     }
 }

@@ -20,21 +20,23 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.npc.ludi;
 
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
+import moe.maple.scripts.util.Items;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
+@Script(name = "ludi014", description = "1st eos rock : 2040024, 100th floor", field = 2040024)
+public class FirstEosRock extends NpcScript {
 
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        if (user.hasItem(Items.EOS_ROCK_SCROLL)) {
+            askYesNo("You can use #b#t"+Items.EOS_ROCK_SCROLL+"##k to activate #b#p2040024##k. Will you head over to #b#p2040025##k at the 71st floor?", () ->
+                exchange(() -> user.transferField(221022900, "go00"), String.format("You cannot enable #b#p2040024##k without #b#t%d##k.", Items.EOS_ROCK_SCROLL),
+                        0, Items.EOS_ROCK_SCROLL, -1));
+        } else {
+            say("There's a rock that will enable you to teleport to #b#p2040025##k, but it cannot be activated without the scroll.");
+        }
     }
 }

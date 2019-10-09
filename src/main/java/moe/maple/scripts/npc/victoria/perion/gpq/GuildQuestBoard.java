@@ -20,21 +20,19 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.npc.victoria.perion.gpq;
 
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
+@Script(name = "guildquest1_board")
+public class GuildQuestBoard extends NpcScript {
 
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        if (field.getId() == 101030104)
+            say("<Notice> \r Are you the Guild that possesses an ample amount of courage and trust? Then take on the Guild Quest and challenge yourselves!\r \r #bTo Participate :#k\r 1. The Guild must consist of at least 6 people!\r 2. The leaders of the Guild should be the Master and the Jr. Master of the Guild!\r 3. The Guild Quest may end early if the guildmembers participating reaches below 6, or if the leader decides to end it early!");
+        else if (field.getId() == 990000000)
+            say("#r<Warning>#k Danger! A force of evil is running through the Sharenian Castle!\r 1. There's a force of evil currently running through the Sharenian Castle, so don't get too close, or risk death.\r 2. Use the Returning Rock if you want to end the journey early!");
     }
 }

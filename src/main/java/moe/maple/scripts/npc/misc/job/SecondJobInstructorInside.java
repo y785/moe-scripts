@@ -1,6 +1,7 @@
 package moe.maple.scripts.npc.misc.job;
 
 import moe.maple.api.script.model.NpcScript;
+import moe.maple.api.script.model.helper.Exchange;
 import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.SayBuilder;
 import moe.maple.api.script.util.tuple.Tuple;
@@ -20,7 +21,7 @@ public abstract class SecondJobInstructorInside extends NpcScript {
                         .sayf("Ohhhhh... you collected all 30 #v{}#!!\r\nThat is no small feat... just incredible!", darkMarble)
                         .sayf("You've passed the test and for that, I'll reward you #b#t{}##k. Take this #v{}# and go back to #bPerion#k.", proof, proof);
                 say(saying.build()).andThen(()->{
-                    if(user.exchange(0, Tuple.listOf(darkMarble, marbleCount, letter(), -1, proof, 1))) {
+                    if(user.exchange(new Exchange(0, Tuple.listOf(darkMarble, marbleCount, letter(), -1, proof, 1)))) {
                         leave();
                         say("Good luck my friend! You have worked hard for this!");
                     } else sayf("Hey pal... Do you really have 30 #t{}#, #t{}#, and an empty slot in the ETC tab?", darkMarble, letter());

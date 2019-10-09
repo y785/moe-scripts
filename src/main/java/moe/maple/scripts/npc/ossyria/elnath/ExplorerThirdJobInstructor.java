@@ -2,6 +2,7 @@ package moe.maple.scripts.npc.ossyria.elnath;
 
 import moe.maple.api.script.logic.action.BasicScriptAction;
 import moe.maple.api.script.model.NpcScript;
+import moe.maple.api.script.model.helper.MenuItem;
 import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.FontColor;
 import moe.maple.api.script.util.builder.SayBuilder;
@@ -34,10 +35,10 @@ public abstract class ExplorerThirdJobInstructor extends NpcScript {
         int job = user.getJobId();
         if(isCorrectJobCategory(job)) {
             if (level >= zakumLvReq) {//Okay, I'll talk to the noob.
-                List<Tuple<String, BasicScriptAction>> tuples = new LinkedList<>();
-                if(level >= thirdLvReq) tuples.add(Tuple.of("About my job...", this::doThirdJob));
-                tuples.add(Tuple.of("About the Zakum Dungeon Quest...", this::doZakum));
-                askMenu("Can I help you?#b", tuples);
+                List<MenuItem> menuItems = new LinkedList<>();
+                if(level >= thirdLvReq) menuItems.add(MenuItem.of("About my job...", this::doThirdJob));
+                menuItems.add(MenuItem.of("About the Zakum Dungeon Quest...", this::doZakum));
+                askMenu("Can I help you?#b", menuItems.toArray(MenuItem[]::new));
             } else {//HAHAHAHAHA go away.
                 say("There's nothing I can do to help you. Come to me again when you are stronger.");
             }

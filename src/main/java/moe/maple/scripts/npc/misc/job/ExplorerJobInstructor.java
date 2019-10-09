@@ -1,6 +1,7 @@
 package moe.maple.scripts.npc.misc.job;
 
 import moe.maple.api.script.model.NpcScript;
+import moe.maple.api.script.model.helper.Exchange;
 import moe.maple.api.script.util.Moematter;
 import moe.maple.api.script.util.builder.SayBuilder;
 import moe.maple.api.script.util.builder.ScriptStringBuilder;
@@ -75,7 +76,7 @@ public abstract class ExplorerJobInstructor extends NpcScript {
         say(Moematter.format("From here on out, you are going to be a #b{}#k! {}", getCategoryName(), getFirstJobRewardSuffix())).andThen(()->{
             var rewards = getFirstJobExchangeRewards();
             //if(slotCount(1) > holdCount(1) // isFull ? //Hmm ... Check if there is an empty slot in your Equip window. I'm trying to give you a weapon as a reward for your first advancement.
-            if(user.exchange(0, rewards)) {
+            if(user.exchange(rewards)) {
                 user.setJob(getFirstJobId(), true);
                 var sayBuilder = new SayBuilder(this);
                 int additionalSp = 1;//You get 1 no matter what!
@@ -100,9 +101,10 @@ public abstract class ExplorerJobInstructor extends NpcScript {
         });
     }
 
-    private void onFirstJobExchangeFailure(List<Tuple<Integer, Integer>> rewards) {
+    private void onFirstJobExchangeFailure(Exchange exc) {
+        var rewards = exc.getItems();
         int firstReward = rewards.get(0).left();
-        if(user.getItemCount(firstReward) > 0) {//The weapons are one of a kind, by the way.
+        if(user.getItemCount(firstReward) > 0) { // The weapons are one of a kind, by the way.
             say(Moematter.format("Hey you... drop the #i{}#.. It's one of a kind, but I'm going to give you another shh don't think about it too hard you're bugged mate.", firstReward));
         } else {
             var ssb = new ScriptStringBuilder().append("Hmm... Please make sure you have enough room for these in your inventory...").newLine(2);
@@ -121,7 +123,7 @@ public abstract class ExplorerJobInstructor extends NpcScript {
 
     protected abstract int getFirstJobLevelRequirement();
     protected abstract short getFirstJobId();
-    protected abstract List<Tuple<Integer, Integer>> getFirstJobExchangeRewards();
+    protected abstract Exchange getFirstJobExchangeRewards();
     protected abstract String getFirstJobAskPrefix();
     protected abstract String getFirstJobRewardSuffix();
     protected abstract String getFirstJobClosingStatement();
@@ -269,7 +271,7 @@ public abstract class ExplorerJobInstructor extends NpcScript {
                     sayf("{}... You beat #emy other self#n and brought the #b#t{}##k here to me safely. Good! This surely proves your strength... I believe you are ready to advance to 3rd job.\\r\\nAs promised, I will give you #b#t{}##k.",
                             compliment.get(ThreadLocalRandom.current().nextInt(0, compliment.size())), blackCharm, necklaceOfStrength
                     ).andThen(() -> {
-                        if (user.exchange(0, Tuple.listOf(blackCharm, -1, necklaceOfStrength, 1))) {
+                        if (user.exchange(new Exchange(0, Tuple.listOf(blackCharm, -1, necklaceOfStrength, 1)))) {
                             qr.setValue(THIRD_JOB_QUEST_ID, "p2");
                             say(giveItToThirdInstructor);
                         } else

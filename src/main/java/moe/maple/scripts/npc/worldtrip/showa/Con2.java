@@ -20,21 +20,18 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.npc.worldtrip.showa;
 
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
+@Script(name = "con2", description = "Npc: 9120200")
+public class Con2 extends NpcScript {
 
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        askYesNo("Here you are, right in front of the hideout! What? You want to return to Showa Town? ", () -> {
+            user.transferField(801000000);
+        }, () -> say("If you want to return to Showa Town, then talk to me."));
     }
 }

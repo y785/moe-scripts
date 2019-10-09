@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.misc;
+package moe.maple.scripts.npc.victoria;
 
 import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.util.Moematter;

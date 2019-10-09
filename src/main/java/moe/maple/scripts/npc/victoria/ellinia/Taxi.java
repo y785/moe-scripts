@@ -24,7 +24,7 @@ package moe.maple.scripts.npc.victoria.ellinia;
 
 import moe.maple.api.script.model.Script;
 import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.misc.VictoriaBasicTaxi;
+import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
 @Script(name = "taxi4")
 public class Taxi extends VictoriaBasicTaxi {

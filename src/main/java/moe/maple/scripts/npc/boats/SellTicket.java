@@ -40,8 +40,8 @@ public class SellTicket extends NpcScript {
 
     private void sellTicket(int ticket, int price, String message) {
         askYesNo(message, () -> {
-            if (!user.exchange(-price, ticket, 1))
-                 say(String.format("Are you sure you have #b%,d mesos#k? If so, then you should check if your ETC inventory is full.", price));
+            exchange(String.format("Are you sure you have #b%,d mesos#k? If so, then you should check if your ETC inventory is full.", price),
+                    price, ticket, 1);
         }, () -> say("Alright. You must still have some business to deal with here."));
     }
 

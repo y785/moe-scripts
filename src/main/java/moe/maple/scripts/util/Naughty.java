@@ -22,6 +22,10 @@
 
 package moe.maple.scripts.util;
 
+import moe.maple.api.script.model.object.user.QuestObject;
+
+import java.time.Duration;
+import java.time.Instant;
 import java.util.function.Predicate;
 
 public class Naughty {
@@ -38,5 +42,11 @@ public class Naughty {
         if (value == null || value.isEmpty() || !numeric.test(value))
             return def;
         return Integer.parseInt(value);
+    }
+
+    public static long toLong(String value, long def) {
+        if (value == null || value.isEmpty() || !numeric.test(value))
+            return def;
+        return Long.parseLong(value);
     }
 }

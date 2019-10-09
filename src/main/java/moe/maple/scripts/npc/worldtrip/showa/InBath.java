@@ -20,21 +20,20 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.npc.worldtrip.showa;
 
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
-
+@Script(name = "in_bath", description = "Showa Town: Hikari")
+public class InBath extends NpcScript {
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        askYesNo( "Would you like to enter the bathhouse? That'll be 300 mesos for you. And don't take the towels!", () -> {
+            if (user.decreaseMoney(300))
+                user.transferField(user.isMale() ? 801000100 : 801000200);
+            else
+                say("Please check your wallet or purse and see if you have 300 mesos to enter this place. We have to keep the water hot you know...");
+        }, () -> say("Please come back some other time. "));
     }
 }

@@ -20,21 +20,21 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.npc.victoria.ellinia;
 
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
+/**
+ * See {@link HerbIn}
+ */
+@Script(name = "herb_out", description = "Herb Jump Quest 'out' NPC", field = 101000100)
+public class HerbOut extends NpcScript {
 
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        askYesNo("Do you want to get out of here? Well... this place can really wear you out... I'm used to it, okay. Anyway, remember that if you leave here through me, you'll have to start the mission over. Do you still want to go? ",
+                () -> user.transferField(101000000, ""),
+                () -> say("Isn't it awful that you have to restart the whole thing? Keep trying... the more you explore, the better you will know this whole place. Soon you will be able to walk around with your eyes closed, hehe."));
     }
 }

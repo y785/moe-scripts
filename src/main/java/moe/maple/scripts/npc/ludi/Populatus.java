@@ -20,21 +20,19 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.npc.ludi;
 
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
+@Script(name = "Populatus01",
+        description = "The npc inside the populatus boss room: Machine Apparatus | 2041025",
+        field = 220080001)
+public class Populatus extends NpcScript {
 
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        askYesNo("Beep... beep... you can make your escape to a safer place through me. Beep ... beep ... would you like to leave this place?",
+                () -> user.transferField(220080000, "st00"));
     }
 }

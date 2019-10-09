@@ -20,21 +20,25 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.npc.worldtrip.showa;
 
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
+@Script(name = "con3", description = "Npc: 9120202")
+public class Con3 extends NpcScript {
 
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        final var BIG_BOSS_FLASHLIGHT = 4000141;
+
+        if (user.hasItem(BIG_BOSS_FLASHLIGHT)) {
+            say("That... that flashlight!! You really defeated the boss...?? You...! Wow, I must have a knack for finding talent. That's just incredible! Now let's get out of here!")
+                    .andThen(() -> user.transferField(801040101));
+        } else {
+            askYesNo("Once you eliminate the boss, you'll have to show me the boss's flashlight as evidence. I won't believe it until you show me the flashlight! What? You want to leave this room?",
+                    () -> user.transferField(801040000),
+                    () -> say("I really admire your toughness! Well, if you decide to return to Showa Town, let me know~!"));
+        }
     }
 }

@@ -20,21 +20,18 @@
  * SOFTWARE.
  */
 
-package moe.maple.scripts.npc.victoria.nautilus;
+package moe.maple.scripts.npc.victoria.kerning;
 
+import moe.maple.api.script.model.NpcScript;
 import moe.maple.api.script.model.Script;
-import moe.maple.api.script.util.tuple.Tuple;
-import moe.maple.scripts.npc.victoria.VictoriaBasicTaxi;
 
-@Script(name = "taxi5")
-public class Taxi extends VictoriaBasicTaxi {
-
+@Script(name = "subway_out",
+        description = "The device for the character to leave if giving up midway through the quest"
+)
+public class SubwayOut extends NpcScript {
     @Override
     protected void work() {
-        super.work(Tuple.of(104000000, 900),
-                Tuple.of(102000000, 800),
-                Tuple.of(101000000, 1000),
-                Tuple.of(100000000, 900),
-                Tuple.of(103000000, 1000));
+        askYesNo("This device is connected to outside. Are you going to give up and leave this place? You'll have to start from scratch the next time you come in...",
+                () -> user.transferField(103000100));
     }
 }

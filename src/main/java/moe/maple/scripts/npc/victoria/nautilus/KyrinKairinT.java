@@ -1,6 +1,7 @@
 package moe.maple.scripts.npc.victoria.nautilus;
 
 import moe.maple.api.script.model.Script;
+import moe.maple.api.script.model.helper.Exchange;
 import moe.maple.api.script.util.builder.SayBuilder;
 import moe.maple.api.script.util.tuple.Tuple;
 import moe.maple.scripts.npc.misc.job.ExplorerJobInstructor;
@@ -139,8 +140,8 @@ public class KyrinKairinT extends ExplorerJobInstructor {
     }
 
     @Override
-    protected List<Tuple<Integer, Integer>> getFirstJobExchangeRewards() {
-        return Tuple.listOf(1492000, 1, 1482000, 1, 2330000, 1000);
+    protected Exchange getFirstJobExchangeRewards() {
+        return new Exchange(0, Tuple.listOf(1492000, 1, 1482000, 1, 2330000, 1000));
     }
 
     @Override
