@@ -26,20 +26,30 @@ import moe.maple.api.script.model.PortalScript;
 import moe.maple.api.script.model.Script;
 import moe.maple.scripts.util.Naughty;
 
-/**
- * Oh boy! All the portals in one!
- */
 @Script(name = {"market00", "market01", "market02", "market03", "market04", "market05", "market06", "market07", "market08", "market09", "market10", "market11", "market12", "market13", "market14", "market15", "market16", "market17", "market18", "market19", "market20", "market21", "market22", "market23", "market24"},
-        description = "Free Market exit portal")
-public class Market00 extends PortalScript {
+        description = "Free Market entry portals")
+public class FreeMarketPortals extends PortalScript {
     @Override
     protected void work() {
-        var variable = user.getScriptVariable("market");
+        if (field.getId() == 910000000) {
+            var variable = user.getScriptVariable("market");
 
-        var returnMap = Naughty.toInt(variable, 100000100);
-        var portal = returnMap == 600000000 || returnMap == 103050000 ? "market00" : "st00";
+            var returnMap = Naughty.toInt(variable, 100000100);
+            var portal = returnMap == 600000000 || returnMap == 103050000 ? "market00" : "st00";
 
-        playPortalSE();
-        user.transferField(returnMap, portal);
+            playPortalSE();
+            user.transferField(returnMap, portal);
+        } else {
+            user.setScriptVariable("market", user.getFieldId());
+            playPortalSE();
+            user.transferField(910000000, "st00");
+        }
+//        var variable = user.getScriptVariable("market");
+//
+//        var returnMap = Naughty.toInt(variable, 100000100);
+//        var portal = returnMap == 600000000 || returnMap == 103050000 ? "market00" : "st00";
+//
+//        playPortalSE();
+//        user.transferField(returnMap, portal);
     }
 }

@@ -64,11 +64,14 @@ public class Jobs {
         Gunslinger = 520,
         Outlaw = 521,
         Corsair = 522
+                ;
 
-        ;
-
-
-    ;
+    public static final int[][] JOB_ADVANCEMENTS = {
+            { Jobs.Beginner, Jobs.Swordman, Jobs.Magician, Jobs.Archer, Jobs.Rogue, Jobs.Pirate },
+            { Jobs.Fighter, Jobs.Page, Jobs.Spearman, Jobs.FirePoisonWizard, Jobs.IceLightningWizard, Jobs.Cleric, Jobs.Hunter, Jobs.Crossbowman, Jobs.Assassin, Jobs.Bandit, Jobs.Brawler, Jobs.Gunslinger},
+            { Jobs.Crusader, Jobs.WhiteKnight, Jobs.DragonKnight, Jobs.FirePoisonMage, Jobs.IceLightningMage, Jobs.Priest, Jobs.Ranger, Jobs.Sniper, Jobs.Hermit, Jobs.ChiefBandit, Jobs.Marauder, Jobs.Outlaw},
+            { Jobs.Hero, Jobs.Paladin, Jobs.DarkKnight, Jobs.FirePoisonArchmage, Jobs.IceLightningArchmage, Jobs.Bishop, Jobs.Bowmaster, Jobs.Marksman, Jobs.NightLord, Jobs.Shadower, Jobs.Buccaneer, Jobs.Corsair}
+    };
 
 
     private static final Map<Integer, String> jobNames = Map.ofEntries(

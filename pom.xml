@@ -31,7 +31,8 @@
     <version>${moe.api.version}</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <moe.api.version>1.5.10-ALPHA</moe.api.version>
+        <moe.api.version>1.5.12-ALPHA</moe.api.version>
+        <slf4j.version>1.7.25</slf4j.version>
     </properties>
     <build>
         <plugins>
@@ -88,29 +89,10 @@
         </dependency>
         <!-- Logging -->
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.2.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>1.2.3</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- Testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.5.0</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.5.0</version>
-            <scope>test</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>

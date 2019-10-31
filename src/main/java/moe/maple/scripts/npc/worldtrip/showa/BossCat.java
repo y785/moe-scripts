@@ -87,6 +87,7 @@ public class BossCat extends NpcScript {
             var question = questions.get(idx);
             var prompt = question.left();
             var correct = question.right();
+
             askMenu(prompt).andThen(sel -> {
                 if (correct.equals(sel)) askFrom(idx + 1, end);
                 else say("Hmmm...all humans make mistakes anyway! If you want to take another crack at it, then bring me 300 Fried Chickens. ");
